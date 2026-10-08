@@ -12,10 +12,12 @@ export const Footer: React.FC = () => {
           {/* Column 1: Clinic Overview & Philosophy */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary-600 text-white flex items-center justify-center font-heading font-extrabold text-lg shadow-md">
-                <svg className="w-5 h-5 fill-current text-white" viewBox="0 0 24 24">
-                  <path d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z" />
-                </svg>
+              <div className="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center shrink-0 shadow-sm border border-white/10">
+                <img
+                  src="/assets/images/logo.png"
+                  alt="Shri Sai Clinic Logo"
+                  className="w-full h-full object-contain filter drop-shadow-xs"
+                />
               </div>
               <span className="font-heading font-extrabold text-xl text-white tracking-tight">
                 {CLINIC_INFO.name}

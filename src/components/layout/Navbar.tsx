@@ -48,15 +48,17 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Clinic Brand Identity */}
-          <a href="#" className="flex items-center gap-3.5 group">
-            <div className="w-11 h-11 rounded-2xl bg-primary-600 text-white flex items-center justify-center font-heading font-extrabold text-xl shadow-md group-hover:scale-105 transition-transform duration-200">
-              <svg className="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-                <path d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z" />
-              </svg>
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
+              <img
+                src="/assets/images/logo.png"
+                alt="Shri Sai Clinic Logo"
+                className="w-full h-full object-contain filter drop-shadow-xs"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight">
+                <span className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight group-hover:text-primary-700 transition-colors">
                   {CLINIC_INFO.name}
                 </span>
               </div>
