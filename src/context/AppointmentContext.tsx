@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { AppointmentData, AppointmentFormData } from '../types';
 
 interface AppointmentContextType {
@@ -10,7 +10,6 @@ interface AppointmentContextType {
   openTicket: (ticket: AppointmentData) => void;
   closeTicket: () => void;
   generateTicket: (formData: AppointmentFormData) => AppointmentData;
-  printTicket: () => void;
   getWhatsAppShareUrl: (ticket: AppointmentData) => string;
 }
 
@@ -39,6 +38,30 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const closeTicket = () => {
     setActiveTicket(null);
+  };
+
+  const getWhatsAppShareUrl = (ticket: AppointmentData): string => {
+    const text = encodeURIComponent(
+      `🏥 *SHRI SAI CLINIC — APPOINTMENT BOOKING*\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `📋 *Token ID:* ${ticket.tokenId}\n` +
+      `📅 *Booking Time:* ${ticket.createdAt}\n\n` +
+      `👤 *PATIENT INFORMATION*\n` +
+      `• *Full Name:* ${ticket.patientName}\n` +
+      `• *Mobile Number:* ${ticket.patientPhone}\n\n` +
+      `🗓️ *REQUESTED SCHEDULE*\n` +
+      `• *Preferred Date:* ${ticket.appointmentDate}\n` +
+      `• *Session Slot:* ${ticket.sessionSlot}\n\n` +
+      `🩺 *CLINICAL INQUIRY*\n` +
+      `• *Primary Concern:* ${ticket.specialtyConcern}\n` +
+      `• *Symptoms / Notes:* ${ticket.patientNotes ? ticket.patientNotes : 'None provided'}\n\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `📍 *Clinic:* Samrudhi Complex, Opp. Palace Gate, Vansda, Gujarat\n` +
+      `👨‍⚕️ *Doctor:* Dr. Jay Bhatt (BHMS)\n` +
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+      `_Submitted via Shri Sai Clinic Online Portal_`
+    );
+    return `https://wa.me/919054520603?text=${text}`;
   };
 
   const generateTicket = (formData: AppointmentFormData): AppointmentData => {
@@ -71,30 +94,19 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       // ignore storage error
     }
 
+    // Auto-open WhatsApp with pre-filled message to Doctor (+91 90545 20603)
+    const whatsappUrl = getWhatsAppShareUrl(newTicket);
+    if (typeof window !== 'undefined') {
+      try {
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      } catch {
+        // Popups might be blocked; TicketModal provides prominent fallback button
+      }
+    }
+
     setActiveTicket(newTicket);
     closeBooking();
     return newTicket;
-  };
-
-  const printTicket = () => {
-    if (typeof window !== 'undefined') {
-      window.print();
-    }
-  };
-
-  const getWhatsAppShareUrl = (ticket: AppointmentData): string => {
-    const text = encodeURIComponent(
-      `*Shri Sai Clinic - Appointment Token Slip*\n` +
-      `🎫 *Token ID:* ${ticket.tokenId}\n` +
-      `👤 *Patient:* ${ticket.patientName}\n` +
-      `📱 *Phone:* ${ticket.patientPhone}\n` +
-      `📅 *Date:* ${ticket.appointmentDate}\n` +
-      `⏰ *Session:* ${ticket.sessionSlot}\n` +
-      `🩺 *Concern:* ${ticket.specialtyConcern}\n` +
-      (ticket.patientNotes ? `📝 *Notes:* ${ticket.patientNotes}\n` : '') +
-      `\nClinic: Samrudhi Complex, Vansda, Gujarat\nContact: +91 76002 39816`
-    );
-    return `https://wa.me/917600239816?text=${text}`;
   };
 
   return (
@@ -108,7 +120,6 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
         openTicket,
         closeTicket,
         generateTicket,
-        printTicket,
         getWhatsAppShareUrl
       }}
     >
