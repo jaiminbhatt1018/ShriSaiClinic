@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
+}
+
+@layer base {
+  :root {
+    /* Initial Default Seed Color Scale (Clinical Sky #0284C7) */
+    --color-primary-50: #f0f9ff;
+    --color-primary-100: #e0f2fe;
+    --color-primary-200: #bae6fd;
+    --color-primary-300: #7dd3fc;
+    --color-primary-400: #38bdf8;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #0284c7;
+    --color-primary-700: #0369a1;
+    --color-primary-800: #075985;
+    --color-primary-900: #0c4a6e;
+    --color-primary-950: #082f49;
+
+    --primary-blue: var(--color-primary-600);
+    --primary-blue-hover: var(--color-primary-700);
+    --primary-blue-dark: var(--color-primary-800);
+    --primary-navy: #0f172a;
+
+    --bg-page: #f8fafc;
+    --surface-white: #ffffff;
+    --border-subtle: #e2e8f0;
+    --border-blue: var(--color-primary-200);
+
+    --badge-blue-bg: var(--color-primary-50);
+    --badge-blue-text: var(--color-primary-800);
+    --badge-emerald-bg: #ecfdf5;
+    --badge-emerald-text: #047857;
+
+    --primary-contrast: #ffffff;
+    --primary-glow: rgba(2, 132, 199, 0.25);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #334155;
+    background-color: var(--bg-page);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+}
+
+.font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ==========================================================================
+   Solid Buttons & Accents (Themed via Seed Engine)
+   ========================================================================== */
+
+.btn-primary {
+  background-color: var(--color-primary-600, #0284c7);
+  color: var(--primary-contrast, #ffffff);
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-700, #0369a1);
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: var(--color-primary-600, #0284c7);
+  border: 1.5px solid var(--color-primary-600, #0284c7);
+  font-weight: 700;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-50, #e0f2fe);
+  border-color: var(--color-primary-700, #0369a1);
+  color: var(--color-primary-700, #0369a1);
+}
+
+.medical-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 8px -2px rgba(15, 23, 42, 0.05);
+  transition: all 0.25s ease;
+}
+
+.medical-card:hover {
+  border-color: var(--color-primary-200, #bae6fd);
+  box-shadow: 0 10px 25px -5px var(--primary-glow);
+}
+
+/* ==========================================================================
+   Before & After Image Slider Component
+   ========================================================================== */
+
+.before-after-container {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  aspect-ratio: var(--case-aspect, 600 / 675);
+  max-height: 520px;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  background-color: #020617;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+  transition: aspect-ratio 0.35s ease;
+}
+
+.before-after-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.before-after-img.after-layer {
+  z-index: 5;
+}
+
+.before-after-img.before-layer {
+  z-index: 10;
+  clip-path: inset(0 calc(100% - var(--slider-pos, 50%)) 0 0);
+  -webkit-clip-path: inset(0 calc(100% - var(--slider-pos, 50%)) 0 0);
+}
+
+.before-after-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-primary-600);
+  z-index: 20;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.before-after-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-primary-600);
+  border: 2.5px solid var(--color-primary-600);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25), 0 0 0 3px var(--primary-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+  pointer-events: auto;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.before-after-handle:hover,
+.before-after-handle:active {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.3), 0 0 0 5px var(--primary-glow);
+}
+
+.before-after-range {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 30;
+  margin: 0;
+  padding: 0;
+}
+
+.slider-badge-before {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 25;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}
+
+.slider-badge-after {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 25;
+  background: var(--color-primary-600, #0284c7);
+  color: #ffffff;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #cbd5e1;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  width: 22px;
+  background-color: var(--color-primary-600, #0284c7);
+}
+
+/* ==========================================================================
+   Services Auto-Scrollable Carousel Track & Cards
+   ========================================================================== */
+
+.services-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.services-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.service-carousel-card {
+  flex: 0 0 calc(100% - 1rem);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .service-carousel-card {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .service-carousel-card {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.pulse-whatsapp {
+  animation: pulseGlow 2.2s infinite;
+}
+
+/* ==========================================================================
+   Print Stylesheet for Patient Consultation Slip
+   ========================================================================== */
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printableAppointmentTicket,
+  #printableAppointmentTicket * {
+    visibility: visible;
+  }
+  #printableAppointmentTicket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    background: #ffffff;
+    border: none;
+    box-shadow: none;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
