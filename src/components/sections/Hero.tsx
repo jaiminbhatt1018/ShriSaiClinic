@@ -100,7 +100,7 @@ export const Hero: React.FC = () => {
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-200">
                   {/* Authentic Clinical Doctor Photo */}
                   <img
-                    src="/assets/images/dr-jay-bhatt.jpeg"
+                    src="/assets/images/dr-jay-bhatt-healing-teal.jpeg"
                     alt={`${CLINIC_INFO.doctor} - General Physician & Classical Homoeopath`}
                     className="w-full h-full object-cover object-top"
                   />
