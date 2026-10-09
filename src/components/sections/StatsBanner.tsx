@@ -36,84 +36,84 @@ export const StatsBanner: React.FC = () => {
   const nonSteroid = useCounter(CLINIC_INFO.stats.nonSteroidal, isInView);
 
   return (
-    <section id="stats-section" ref={ref} className="border-b border-slate-200 bg-white py-10 shadow-xs relative">
+    <section id="stats-section" ref={ref} className="border-b border-slate-200 bg-white py-8 sm:py-10 shadow-xs relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center lg:divide-x divide-slate-100">
           
           {/* Stat 1: Years */}
           <motion.div
-            className="space-y-1.5 pt-4 lg:pt-0"
+            className="space-y-1.5 pt-2 sm:pt-4 lg:pt-0"
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
-              <Clock className="w-5 h-5" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
+              <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <p className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
               <span>{Math.round(years)}</span>+
             </p>
             <p className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">
               Years Clinical Practice
             </p>
-            <p className="text-[11px] text-slate-400">Classical Homeopathy Foundation</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400">Classical Homeopathy Foundation</p>
           </motion.div>
 
           {/* Stat 2: Patients */}
           <motion.div
-            className="space-y-1.5 pt-4 lg:pt-0"
+            className="space-y-1.5 pt-2 sm:pt-4 lg:pt-0"
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
-              <Users className="w-5 h-5" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <p className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
               <span>{Math.round(patients).toLocaleString()}</span>+
             </p>
             <p className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">
               Treated Patients
             </p>
-            <p className="text-[11px] text-slate-400">Skin, Hair &amp; Chronic Ailments</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400">Skin, Hair &amp; Chronic Ailments</p>
           </motion.div>
 
           {/* Stat 3: Relief Rate */}
           <motion.div
-            className="space-y-1.5 pt-4 lg:pt-0"
+            className="space-y-1.5 pt-2 sm:pt-4 lg:pt-0"
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
-              <Activity className="w-5 h-5" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
+              <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <p className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
               <span>{relief.toFixed(1)}</span>%
             </p>
             <p className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">
               Natural Relief Rate
             </p>
-            <p className="text-[11px] text-slate-400">Sustained Patient Remission</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400">Sustained Patient Remission</p>
           </motion.div>
 
           {/* Stat 4: Non-Steroidal */}
           <motion.div
-            className="space-y-1.5 pt-4 lg:pt-0"
+            className="space-y-1.5 pt-2 sm:pt-4 lg:pt-0"
             initial={{ opacity: 0, y: 12 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
-            <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
-              <ShieldCheck className="w-5 h-5" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <p className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900">
+            <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
               <span>{Math.round(nonSteroid)}</span>%
             </p>
             <p className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">
               Non-Steroidal Care
             </p>
-            <p className="text-[11px] text-slate-400">Zero Chemical Suppression</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400">Zero Chemical Suppression</p>
           </motion.div>
 
         </div>

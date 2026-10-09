@@ -9,7 +9,7 @@ interface AppointmentContextType {
   activeTicket: AppointmentData | null;
   openTicket: (ticket: AppointmentData) => void;
   closeTicket: () => void;
-  generateTicket: (formData: AppointmentFormData) => AppointmentData;
+  generateTicket: (formData: AppointmentFormData) => Promise<AppointmentData>;
   getWhatsAppShareUrl: (ticket: AppointmentData) => string;
 }
 
@@ -64,14 +64,63 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
     return `https://wa.me/919054520603?text=${text}`;
   };
 
-  const generateTicket = (formData: AppointmentFormData): AppointmentData => {
+  const generateTicket = async (formData: AppointmentFormData): Promise<AppointmentData> => {
     const now = new Date();
-    const dateStr = now.toISOString().slice(0, 10).replace(/-/g, '');
-    const rand = Math.floor(1000 + Math.random() * 9000);
-    const tokenId = `SSC-${dateStr}-${rand}`;
+    
+    // Generate optimistic reference ID in IST format: DD-MM-YYYY/1
+    const istDateParts = new Intl.DateTimeFormat("en-IN", {
+      timeZone: "Asia/Kolkata",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    }).formatToParts(now);
+
+    const day = istDateParts.find((p) => p.type === "day")?.value || "10";
+    const month = istDateParts.find((p) => p.type === "month")?.value || "10";
+    const year = istDateParts.find((p) => p.type === "year")?.value || "2026";
+    const optimisticTokenId = `${day}-${month}-${year}/1`;
+
+    let canonicalTokenId = optimisticTokenId;
+
+    // Asynchronously dispatch appointment inquiry to Supabase backend & Edge Function email trigger
+    const supabaseUrl = (import.meta.env && import.meta.env.VITE_SUPABASE_URL) || 'https://alehmbxzlsqiryhizrtp.supabase.co';
+    const supabaseAnonKey = (import.meta.env && import.meta.env.VITE_SUPABASE_ANON_KEY) || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFsZWhtYnh6bHNxaXJ5aGl6cnRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1NjQ0NzYsImV4cCI6MjEwNzE0MDQ3Nn0.PnI2DCt1V2UObazVhkSkhtMpiZfzM2kXSsOwl4PZKaw';
+
+    if (typeof window !== 'undefined' && supabaseUrl) {
+      try {
+        const response = await fetch(`${supabaseUrl}/rest/v1/patient_inquiries`, {
+          method: 'POST',
+          headers: {
+            'apikey': supabaseAnonKey,
+            'Authorization': `Bearer ${supabaseAnonKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=representation',
+          },
+          body: JSON.stringify({
+            reference_id: optimisticTokenId,
+            name: formData.patientName.trim(),
+            phone: formData.patientPhone.trim(),
+            appointment_date: formData.appointmentDate,
+            appointment_time: formData.sessionSlot,
+            doctor_or_service: formData.specialtyConcern,
+            symptoms_notes: formData.patientNotes?.trim() || '',
+          }),
+        });
+
+        if (response.ok) {
+          const insertedData = await response.json();
+          const firstRow = Array.isArray(insertedData) ? insertedData[0] : insertedData;
+          if (firstRow?.reference_id) {
+            canonicalTokenId = firstRow.reference_id;
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to send appointment inquiry to Supabase:', err);
+      }
+    }
 
     const newTicket: AppointmentData = {
-      tokenId,
+      tokenId: canonicalTokenId,
       patientName: formData.patientName.trim(),
       patientPhone: formData.patientPhone.trim(),
       appointmentDate: formData.appointmentDate,
@@ -79,6 +128,7 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       specialtyConcern: formData.specialtyConcern,
       patientNotes: formData.patientNotes?.trim() || undefined,
       createdAt: now.toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
         dateStyle: 'medium',
         timeStyle: 'short'
       })
@@ -92,16 +142,6 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       localStorage.setItem(STORAGE_KEY, JSON.stringify(list.slice(0, 20)));
     } catch {
       // ignore storage error
-    }
-
-    // Auto-open WhatsApp with pre-filled message to Doctor (+91 90545 20603)
-    const whatsappUrl = getWhatsAppShareUrl(newTicket);
-    if (typeof window !== 'undefined') {
-      try {
-        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      } catch {
-        // Popups might be blocked; TicketModal provides prominent fallback button
-      }
     }
 
     setActiveTicket(newTicket);

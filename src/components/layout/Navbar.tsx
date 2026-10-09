@@ -48,8 +48,8 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Clinic Brand Identity */}
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
+          <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
               <img
                 src="/assets/images/logo.png"
                 alt="Shri Sai Clinic Logo"
@@ -58,11 +58,11 @@ export const Navbar: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight group-hover:text-primary-700 transition-colors">
+                <span className="font-heading font-extrabold text-lg sm:text-2xl text-slate-900 tracking-tight group-hover:text-primary-700 transition-colors">
                   {CLINIC_INFO.name}
                 </span>
               </div>
-              <p className="text-xs font-semibold text-primary-600 tracking-wide uppercase">
+              <p className="text-[10px] sm:text-xs font-semibold text-primary-600 tracking-wide uppercase truncate max-w-[170px] sm:max-w-none">
                 {CLINIC_INFO.tagline}
               </p>
             </div>
@@ -93,7 +93,7 @@ export const Navbar: React.FC = () => {
             {/* Dynamic Seed Color Customizer */}
             <ThemeSeedSelector />
 
-            {/* Official WhatsApp Chat Button */}
+            {/* Official WhatsApp Chat Button (Preserved for future phase) */}
             <a
               href={CLINIC_INFO.whatsappUrl}
               target="_blank"

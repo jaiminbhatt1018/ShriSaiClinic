@@ -61,8 +61,8 @@ const BeforeAfterSliderBase: React.FC = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-md">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div className="max-w-5xl mx-auto bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-md">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
         
         {/* Left Column: Interactive Slider Canvas (7 cols) */}
         <div className="lg:col-span-7 space-y-3.5">
@@ -179,27 +179,27 @@ const BeforeAfterSliderBase: React.FC = () => {
             </div>
 
             {/* Main Case Title */}
-            <h3 className="font-heading font-extrabold text-2xl text-slate-900 mt-3">
+            <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 mt-2.5 sm:mt-3">
               {activeCase.title}
             </h3>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-2">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1.5 sm:mt-2">
               {activeCase.description}
             </p>
 
             {/* 3-Box Clinical Metric Facts */}
-            <div className="grid grid-cols-3 gap-2 mt-4 text-center">
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2 mt-3.5 sm:mt-4 text-center">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-2 sm:p-2.5">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                   Duration
                 </span>
-                <span className="font-heading font-bold text-xs text-slate-900 mt-0.5 block">
+                <span className="font-heading font-bold text-xs text-slate-900 mt-0.5 block truncate">
                   {activeCase.duration}
                 </span>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-2 sm:p-2.5">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                   Method
                 </span>
                 <span className="font-heading font-bold text-xs text-primary-700 mt-0.5 block truncate">
@@ -207,11 +207,11 @@ const BeforeAfterSliderBase: React.FC = () => {
                 </span>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-2.5">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-2 sm:p-2.5">
+                <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                   Outcome
                 </span>
-                <span className="font-heading font-bold text-xs text-emerald-600 mt-0.5 block">
+                <span className="font-heading font-bold text-xs text-emerald-600 mt-0.5 block truncate">
                   {activeCase.recovery}
                 </span>
               </div>

@@ -64,10 +64,10 @@ export function withModal<P extends object>(
             />
 
             {/* Modal Dialog Position Container */}
-            <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-6">
+            <div className="flex min-h-full items-center justify-center p-3 sm:p-6 text-center">
               <motion.div
                 ref={modalRef}
-                className={`relative w-full ${maxWidthClass} transform rounded-3xl bg-white p-6 sm:p-8 text-left shadow-2xl transition-all border border-slate-200 z-10`}
+                className={`relative w-full ${maxWidthClass} max-h-[92vh] overflow-y-auto transform rounded-3xl bg-white p-5 sm:p-8 text-left shadow-2xl transition-all border border-slate-200 z-10`}
                 initial={{ opacity: 0, scale: 0.95, y: 16 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 16 }}

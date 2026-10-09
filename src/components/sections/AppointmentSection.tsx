@@ -12,7 +12,8 @@ import {
   User, 
   Calendar, 
   Stethoscope, 
-  MessageSquare 
+  MessageSquare,
+  CheckCircle 
 } from 'lucide-react';
 
 const AppointmentSectionBase: React.FC = () => {
@@ -30,8 +31,9 @@ const AppointmentSectionBase: React.FC = () => {
   });
 
   const [errorMsg, setErrorMsg] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.patientName.trim()) {
       setErrorMsg('Please enter the patient name.');
@@ -46,8 +48,15 @@ const AppointmentSectionBase: React.FC = () => {
       return;
     }
 
-    setErrorMsg('');
-    generateTicket(formData);
+    try {
+      setIsSubmitting(true);
+      setErrorMsg('');
+      await generateTicket(formData);
+    } catch {
+      setErrorMsg('Failed to process booking. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -145,15 +154,11 @@ const AppointmentSectionBase: React.FC = () => {
 
           <div className="pt-2">
             <a
-              href="https://wa.me/917600239816?text=Hello%20Shri%20Sai%20Clinic,%20I%20need%20location%20directions%20and%20OPD%20inquiry."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 rounded-xl border border-emerald-500 bg-emerald-50 text-emerald-800 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-emerald-100 transition shadow-xs"
+              href={CLINIC_INFO.phoneTel}
+              className="w-full py-3 rounded-xl border border-primary-500 bg-primary-50 text-primary-800 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary-100 transition shadow-xs"
             >
-              <svg className="w-4 h-4 fill-emerald-600 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-              </svg>
-              <span>Direct WhatsApp Consultation Query</span>
+              <Phone className="w-4 h-4 text-primary-600 shrink-0" />
+              <span>Call Clinic Desk (+91 90545 20603)</span>
             </a>
           </div>
 
@@ -162,17 +167,17 @@ const AppointmentSectionBase: React.FC = () => {
       </div>
 
       {/* Right Column: Instant Token Generator Form (7 cols) */}
-      <div className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 shadow-md border border-slate-200">
+      <div className="lg:col-span-7 bg-white rounded-3xl p-5 sm:p-8 lg:p-10 shadow-md border border-slate-200">
         
-        <div className="mb-6 pb-4 border-b border-slate-100">
+        <div className="mb-5 sm:mb-6 pb-4 border-b border-slate-100">
           <span className="text-xs font-bold uppercase tracking-wider text-primary-700 bg-primary-50 px-3 py-1 rounded-full border border-primary-200 inline-block">
             Direct Appointment Booking
           </span>
-          <h3 className="font-heading font-extrabold text-2xl text-slate-900 mt-2">
+          <h3 className="font-heading font-extrabold text-xl sm:text-2xl text-slate-900 mt-2">
             Book Doctor Consultation Slot
           </h3>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            Select your preferred date &amp; session to send your booking enquiry directly to Dr. Jay Bhatt on WhatsApp.
+            Select your preferred date &amp; session to submit your consultation inquiry directly to the clinic.
           </p>
         </div>
 
@@ -182,9 +187,9 @@ const AppointmentSectionBase: React.FC = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
             {/* Full Name */}
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
@@ -197,7 +202,7 @@ const AppointmentSectionBase: React.FC = () => {
                 value={formData.patientName}
                 onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
                 placeholder="e.g. Ramesh Patel"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-sm transition bg-white"
+                className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
               />
             </div>
 
@@ -205,7 +210,7 @@ const AppointmentSectionBase: React.FC = () => {
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
                 <Phone className="w-3.5 h-3.5 text-primary-600" />
-                <span>WhatsApp Mobile *</span>
+                <span>Mobile Number *</span>
               </label>
               <input
                 type="tel"
@@ -213,12 +218,12 @@ const AppointmentSectionBase: React.FC = () => {
                 value={formData.patientPhone}
                 onChange={(e) => setFormData({ ...formData, patientPhone: e.target.value })}
                 placeholder="10-digit phone number"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-sm transition bg-white"
+                className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
               />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
             {/* Date */}
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
@@ -231,7 +236,7 @@ const AppointmentSectionBase: React.FC = () => {
                 min={todayStr}
                 value={formData.appointmentDate}
                 onChange={(e) => setFormData({ ...formData, appointmentDate: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-sm transition bg-white"
+                className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
               />
             </div>
 
@@ -244,7 +249,7 @@ const AppointmentSectionBase: React.FC = () => {
               <select
                 value={formData.sessionSlot}
                 onChange={(e) => setFormData({ ...formData, sessionSlot: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-sm transition bg-white"
+                className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
               >
                 <option value="Morning (10:00 AM - 1:30 PM)">Morning (10:00 AM – 1:30 PM)</option>
                 <option value="Evening (5:30 PM - 9:00 PM)">Evening (5:30 PM – 9:00 PM)</option>
@@ -262,7 +267,7 @@ const AppointmentSectionBase: React.FC = () => {
             <select
               value={formData.specialtyConcern}
               onChange={(e) => setFormData({ ...formData, specialtyConcern: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-sm transition bg-white"
+              className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
             >
               <option value="Skin Care & Dermatology">Skin Care &amp; Dermatology (Acne, Psoriasis, Eczema, Warts)</option>
               <option value="Hair Loss & Alopecia">Hair Loss, Alopecia &amp; Scalp Care</option>
@@ -285,23 +290,28 @@ const AppointmentSectionBase: React.FC = () => {
               value={formData.patientNotes}
               onChange={(e) => setFormData({ ...formData, patientNotes: e.target.value })}
               placeholder="Tell the doctor about your duration of illness, previous medicines, or specific queries..."
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-sm transition bg-white"
+              className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
             />
           </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold flex items-center justify-center gap-2.5 shadow-sm transition active:scale-98 cursor-pointer"
+            disabled={isSubmitting}
+            className="w-full py-3.5 rounded-xl btn-primary text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm transition active:scale-98 cursor-pointer disabled:opacity-75"
           >
-            <svg className="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-            </svg>
-            <span>Confirm &amp; Book via WhatsApp</span>
+            {isSubmitting ? (
+              <span>Confirming Booking...</span>
+            ) : (
+              <>
+                <CheckCircle className="w-4 h-4 text-white shrink-0" />
+                <span>Confirm Booking</span>
+              </>
+            )}
           </button>
 
           <p className="text-[11px] text-slate-400 text-center">
-            * Opens WhatsApp directly with pre-drafted booking details to send to Dr. Jay Bhatt (+91 90545 20603).
+            * Your appointment request is automatically sent to the clinic desk via email for confirmation.
           </p>
 
         </form>
@@ -317,5 +327,5 @@ export const AppointmentSection = withSectionWrapper(AppointmentSectionBase, {
   background: 'white',
   badge: 'Book Consultation • OPD Hours',
   title: 'Schedule Your Consultation & Visiting Hours',
-  subtitle: 'Select an appointment slot below to connect directly with Dr. Jay Bhatt on WhatsApp, or visit during open OPD hours.'
+  subtitle: 'Select an appointment slot below to request a consultation with Dr. Jay Bhatt, or visit during open OPD hours.'
 });

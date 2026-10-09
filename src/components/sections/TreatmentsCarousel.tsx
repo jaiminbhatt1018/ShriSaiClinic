@@ -187,13 +187,13 @@ export const TreatmentsCarouselBase: React.FC = () => {
       </div>
 
       {/* Bottom Progress Indicator Dots */}
-      <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-200/60">
-        <div className="flex items-center gap-2 text-xs text-slate-500">
-          <MousePointer className="w-3.5 h-3.5 text-primary-600" />
-          <span>Swipe or click arrows to explore all {SERVICES.length} clinical departments</span>
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6 pt-4 border-t border-slate-200/60">
+        <div className="flex items-center gap-2 text-xs text-slate-500 text-center sm:text-left">
+          <MousePointer className="w-3.5 h-3.5 text-primary-600 shrink-0" />
+          <span>Swipe or use arrows to explore all {SERVICES.length} clinical departments</span>
         </div>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 shrink-0">
           {SERVICES.map((_, idx) => (
             <button
               key={idx}

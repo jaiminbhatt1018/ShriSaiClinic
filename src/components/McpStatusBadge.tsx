@@ -6,10 +6,10 @@ export const McpStatusBadge: React.FC = () => {
 
   return (
     <>
-      {/* Floating MCP Status Pill in bottom left */}
+      {/* Floating MCP Status Pill in bottom left (Hidden on mobile for patient focus) */}
       <aside 
         aria-label="Vite MCP Integration Status"
-        className="fixed bottom-4 left-4 z-40"
+        className="fixed bottom-4 left-4 z-40 hidden md:block"
       >
         <button
           onClick={() => setShowDetail(!showDetail)}

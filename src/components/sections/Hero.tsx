@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] sm:leading-[1.12]">
               Gentle Healing,{' '}
               <span className="text-primary-600 block sm:inline">
                 Lasting Relief
@@ -48,27 +48,27 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Subheadline with Doctor Identity */}
-            <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor} ({CLINIC_INFO.qualifications.split('•')[0].trim()})</span>, General Physician. Personalized constitutional treatment for stubborn skin ailments, chronic hair fall, and deep pathology — completely free from steroid side effects.
             </p>
 
             {/* Two Key Feature Pills */}
-            <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 pt-2 text-xs sm:text-sm font-bold text-slate-800 max-w-md mx-auto lg:mx-0">
-              <div className="flex items-center gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 pt-2 text-xs sm:text-sm font-bold text-slate-800 max-w-md mx-auto lg:mx-0">
+              <div className="flex items-center gap-2 bg-slate-50 p-2.5 sm:p-3 rounded-2xl border border-slate-200 shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-primary-600 shrink-0" />
                 <span>Zero Side Effects</span>
               </div>
-              <div className="flex items-center gap-2 bg-slate-50 p-3 rounded-2xl border border-slate-200 shadow-xs">
+              <div className="flex items-center gap-2 bg-slate-50 p-2.5 sm:p-3 rounded-2xl border border-slate-200 shadow-xs">
                 <Award className="w-4 h-4 text-primary-600 shrink-0" />
                 <span>Safe for All Ages</span>
               </div>
             </div>
 
             {/* Hero Action CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-3 sm:pt-4">
               <button
                 onClick={() => openBooking('General Consultation')}
-                className="w-full sm:w-auto px-8 py-4 rounded-xl btn-primary text-base flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl btn-primary text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
               >
                 <CalendarPlus className="w-5 h-5 text-white" />
                 <span>Request Consultation</span>
@@ -76,7 +76,7 @@ export const Hero: React.FC = () => {
               
               <a
                 href="#services"
-                className="w-full sm:w-auto px-7 py-4 rounded-xl btn-secondary text-base flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl btn-secondary text-sm sm:text-base flex items-center justify-center gap-2"
               >
                 <Compass className="w-5 h-5 text-primary-600" />
                 <span>Explore Treatments</span>
@@ -84,18 +84,18 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Doctor Availability Footer Note */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 text-xs text-slate-500 pt-2">
+            <div className="flex items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs text-slate-500 pt-1 sm:pt-2">
               <BadgeCheck className="w-4 h-4 text-primary-600 shrink-0" />
-              <span>Walk-ins welcome &bull; Priority for booked appointments &bull; In-Clinic &amp; Video Consultations</span>
+              <span>Walk-ins welcome &bull; Priority for booked appointments</span>
             </div>
 
           </div>
 
           {/* Right Doctor Identity Visual Showcase (5 cols) */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
+          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+            <div className="relative mx-auto max-w-md lg:max-w-none px-2 sm:px-0">
               
-              <div className="relative rounded-3xl p-3 bg-slate-100 shadow-xl border border-slate-200">
+              <div className="relative rounded-3xl p-2.5 sm:p-3 bg-slate-100 shadow-xl border border-slate-200">
                 
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-200">
                   {/* Authentic Clinical Doctor Photo */}
@@ -107,14 +107,14 @@ export const Hero: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   
                   {/* Bottom Caption inside photo */}
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-600 text-white mb-1.5 shadow-xs">
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 text-white">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold bg-primary-600 text-white mb-1.5 shadow-xs">
                       <Check className="w-3 h-3 text-white" /> Verified Medical Practitioner
                     </span>
-                    <h3 className="font-heading font-extrabold text-xl text-white">
+                    <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white">
                       {CLINIC_INFO.doctor}
                     </h3>
-                    <p className="text-xs text-slate-200">
+                    <p className="text-[11px] sm:text-xs text-slate-200">
                       {CLINIC_INFO.qualifications}
                     </p>
                   </div>
@@ -122,12 +122,12 @@ export const Hero: React.FC = () => {
 
                 {/* Floating Badge 1: Experience (Left-Center) with gentle Motion Float */}
                 <motion.div
-                  className="absolute top-1/2 -left-6 -translate-y-1/2 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-2.5 z-10"
+                  className="absolute top-1/2 -left-1 sm:-left-6 -translate-y-1/2 bg-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-2 sm:gap-2.5 z-10"
                   animate={{ y: [-2, 4, -2] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 >
-                  <div className="w-8 h-8 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600">
-                    <Award className="w-5 h-5" />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600">
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
                     <p className="text-xs font-bold text-slate-900 leading-tight">
@@ -139,16 +139,16 @@ export const Hero: React.FC = () => {
 
                 {/* Floating Badge 2: Happy Patients (Bottom-Right) with gentle Motion Float */}
                 <motion.div
-                  className="absolute -bottom-5 right-6 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-2.5 z-10"
+                  className="absolute -bottom-3 sm:-bottom-5 right-2 sm:right-6 bg-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-2 sm:gap-2.5 z-10"
                   animate={{ y: [3, -3, 3] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 >
                   <div className="flex items-center gap-0.5 text-amber-500">
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
-                    <Star className="w-4 h-4 fill-current" />
+                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
                   </div>
                   <div className="border-l border-slate-200 pl-2">
                     <p className="text-xs font-bold text-slate-900">

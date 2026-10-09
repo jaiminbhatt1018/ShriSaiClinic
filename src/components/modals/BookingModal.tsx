@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAppointment } from '../../context/AppointmentContext';
 import { withModal } from '../../hoc/withModal';
-import { User, Phone, Calendar, Clock, Stethoscope, MessageSquare } from 'lucide-react';
+import { User, Phone, Calendar, Clock, Stethoscope, MessageSquare, CheckCircle } from 'lucide-react';
 
 interface BookingModalContentProps {
   onClose: () => void;
@@ -21,6 +21,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
   });
 
   const [errorMsg, setErrorMsg] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (preselectedService) {
@@ -31,7 +32,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
     }
   }, [preselectedService]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.patientName.trim()) {
       setErrorMsg('Please enter the patient name.');
@@ -42,9 +43,16 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
       return;
     }
 
-    setErrorMsg('');
-    generateTicket(formData);
-    onClose();
+    try {
+      setIsSubmitting(true);
+      setErrorMsg('');
+      await generateTicket(formData);
+      onClose();
+    } catch {
+      setErrorMsg('Failed to process booking. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -57,7 +65,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
           Schedule Consultation Slot
         </h3>
         <p className="text-xs sm:text-sm text-slate-500 mt-1">
-          Book an appointment slot and connect directly with Dr. Jay Bhatt on WhatsApp.
+          Book an appointment slot. Our clinic staff will review and confirm your consultation.
         </p>
       </div>
 
@@ -81,7 +89,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
               value={formData.patientName}
               onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
               placeholder="e.g. Ramesh Patel"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-xs sm:text-sm bg-white"
+              className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm bg-white"
             />
           </div>
 
@@ -89,7 +97,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
           <div>
             <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center gap-1.5">
               <Phone className="w-3.5 h-3.5 text-primary-600" />
-              <span>WhatsApp Mobile *</span>
+              <span>Mobile Number *</span>
             </label>
             <input
               type="tel"
@@ -97,7 +105,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
               value={formData.patientPhone}
               onChange={(e) => setFormData({ ...formData, patientPhone: e.target.value })}
               placeholder="10-digit number"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-xs sm:text-sm bg-white"
+              className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm bg-white"
             />
           </div>
         </div>
@@ -115,7 +123,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
               min={todayStr}
               value={formData.appointmentDate}
               onChange={(e) => setFormData({ ...formData, appointmentDate: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-xs sm:text-sm bg-white"
+              className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm bg-white"
             />
           </div>
 
@@ -128,7 +136,7 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
             <select
               value={formData.sessionSlot}
               onChange={(e) => setFormData({ ...formData, sessionSlot: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-xs sm:text-sm bg-white"
+              className="w-full px-3.5 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm bg-white"
             >
               <option value="Morning (10:00 AM - 1:30 PM)">Morning (10:00 AM – 1:30 PM)</option>
               <option value="Evening (5:30 PM - 9:00 PM)">Evening (5:30 PM – 9:00 PM)</option>
@@ -170,16 +178,21 @@ const BookingModalContent: React.FC<BookingModalContentProps> = ({ onClose }) =>
 
         <button
           type="submit"
-          className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold flex items-center justify-center gap-2.5 shadow-sm cursor-pointer active:scale-98 transition"
+          disabled={isSubmitting}
+          className="w-full py-3.5 rounded-xl btn-primary text-white text-sm font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer active:scale-98 transition disabled:opacity-75"
         >
-          <svg className="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-          </svg>
-          <span>Confirm &amp; Book via WhatsApp</span>
+          {isSubmitting ? (
+            <span>Confirming Booking...</span>
+          ) : (
+            <>
+              <CheckCircle className="w-4 h-4 text-white shrink-0" />
+              <span>Confirm Booking</span>
+            </>
+          )}
         </button>
 
         <p className="text-[11px] text-slate-400 text-center">
-          * Opens WhatsApp directly with pre-drafted booking details to send to Dr. Jay Bhatt.
+          * Your appointment request is automatically sent to the clinic desk via email for confirmation.
         </p>
       </form>
     </div>

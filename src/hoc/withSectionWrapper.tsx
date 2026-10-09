@@ -27,7 +27,7 @@ export function withSectionWrapper<P extends object>(
     return (
       <motion.section
         id={config.id}
-        className={`py-20 ${bgClass} border-b border-slate-200 ${overflowClass}`}
+        className={`py-12 sm:py-16 lg:py-20 ${bgClass} border-b border-slate-200 ${overflowClass}`}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
@@ -36,7 +36,7 @@ export function withSectionWrapper<P extends object>(
         <div className={config.containerClassName || 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}>
           {/* Render Header if specified */}
           {(config.badge || config.title || config.subtitle) && (
-            <div className={`mb-12 ${config.headerControls ? 'flex flex-col md:flex-row md:items-end md:justify-between gap-6' : 'text-center max-w-3xl mx-auto'}`}>
+            <div className={`mb-8 sm:mb-12 ${config.headerControls ? 'flex flex-col md:flex-row md:items-end md:justify-between gap-6' : 'text-center max-w-3xl mx-auto'}`}>
               <div className={config.headerControls ? 'max-w-2xl' : ''}>
                 {config.badge && (
                   <span className="text-xs sm:text-sm font-bold tracking-widest text-primary-700 uppercase bg-primary-50 px-3 py-1 rounded-full border border-primary-200 inline-block">
@@ -44,12 +44,12 @@ export function withSectionWrapper<P extends object>(
                   </span>
                 )}
                 {config.title && (
-                  <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+                  <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mt-2 sm:mt-3 tracking-tight">
                     {config.title}
                   </h2>
                 )}
                 {config.subtitle && (
-                  <p className="text-slate-600 text-sm sm:text-base mt-2">
+                  <p className="text-slate-600 text-xs sm:text-sm sm:text-base mt-2">
                     {config.subtitle}
                   </p>
                 )}
