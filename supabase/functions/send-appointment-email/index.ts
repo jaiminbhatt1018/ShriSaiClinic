@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import nodemailer from "npm:nodemailer@^6.9.1";
+import { LOGO_BASE64 } from "./logoBase64.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -51,7 +52,7 @@ function buildHtmlReceipt(data: Required<AppointmentPayload>, submissionTime: st
                 <tr>
                   <td style="background-color: #ffffff; width: 68px; height: 68px; border-radius: 18px; text-align: center; vertical-align: middle; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18); border: 2px solid rgba(255, 255, 255, 0.85);">
                     <img
-                      src="https://shrisaiclinic1812-jaimin-projects1.vercel.app/assets/images/logo.png"
+                      src="cid:cliniclogo"
                       alt="Shri Sai Clinic Logo"
                       width="52"
                       height="52"
@@ -177,7 +178,7 @@ function buildHtmlReceipt(data: Required<AppointmentPayload>, submissionTime: st
                 <tr>
                   <td style="vertical-align: middle; padding-right: 8px;">
                     <img
-                      src="https://shrisaiclinic1812-jaimin-projects1.vercel.app/assets/images/logo.png"
+                      src="cid:cliniclogo"
                       alt="Shri Sai Clinic"
                       width="20"
                       height="20"
@@ -289,6 +290,15 @@ serve(async (req: Request) => {
       to: receiverEmail,
       subject: `🏥 New Appointment Request: ${data.name} - ${data.appointment_date} (Ref: ${data.reference_id})`,
       html: htmlReceipt,
+      attachments: [
+        {
+          filename: "clinic-logo.png",
+          content: LOGO_BASE64,
+          encoding: "base64",
+          cid: "cliniclogo",
+          contentType: "image/png",
+        },
+      ],
     });
 
     console.log("Appointment email sent successfully:", info.messageId, "Ref:", data.reference_id);
