@@ -108,7 +108,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "acne",
     category: "skin",
-    iconName: "Sparkles",
+    iconName: "FaceGlow",
     title: "Acne, Pimples & Scars",
     departmentBadge: "Skin Care",
     description: "Targeted homoeopathy corrects internal androgen surges, sebum overproduction, and bacterial colonization. Eradicates recurrent cysts, blackheads, and post-acne pigmentation safely.",
@@ -224,28 +224,46 @@ export const TESTIMONIALS: Testimonial[] = [
     name: "Pooja Sharma",
     initials: "PS",
     badge: "Acne & Melasma",
-    condition: "Treated for Hormonal Acne & Melasma",
-    title: "\"Severe Hormonal Cystic Acne Completely Cleared\"",
+    condition: "Hormonal Acne & Melasma",
+    title: "Severe Hormonal Acne Cleared",
     stars: 5,
-    review: "\"I battled painful cystic acne for 4 years. Chemical ointments burned my skin and made things worse once stopped. Dr. Jay Bhatt identified my hormonal root cause. Within 4 months of gentle sweet globules, my face cleared up with zero new pimples!\""
+    review: "Suffered from painful cystic acne for 4 years. Dr. Jay's constitutional treatment cleared my skin in 4 months with zero side effects. Skin is completely clear and radiant!"
   },
   {
     name: "Rajesh Patel",
     initials: "RP",
     badge: "Scalp Psoriasis",
-    condition: "Treated for Chronic Scalp Psoriasis",
-    title: "\"3 Years of Flaking Scalp Plaques Healed 100%\"",
+    condition: "Chronic Scalp Psoriasis",
+    title: "3 Years of Flaking Plaques Healed",
     stars: 5,
-    review: "\"I was prescribed steroid shampoos and cortisone lotions that gave temporary relief, then aggressive rebound flare-ups. Dr. Jay Bhatt started constitutional homoeopathy. In just 4 months my scalp cleared completely and has stayed 100% plaque-free!\""
+    review: "Had aggressive scalp flaking and intense itchiness. In just 12 weeks of gentle classical homoeopathy, my scalp cleared completely and stayed 100% plaque-free."
   },
   {
     name: "Dr. K. Mehta (M.D.)",
     initials: "KM",
     badge: "Allergies & Sinus",
-    condition: "Treated for Chronic Sinusitis",
-    title: "\"Astonishing Scientific Results for Sinusitis\"",
+    condition: "Chronic Allergic Sinusitis",
+    title: "Astonishing Clinical Precision",
     stars: 5,
-    review: "\"Being an allopathic doctor myself, I was amazed by Dr. Jay's diagnostic precision and pure classical prescribing. My 7-year recurring morning allergic sneezing and sinus headaches stopped completely. Exceptional clinical acumen.\""
+    review: "As an allopathic physician, I was amazed by Dr. Jay's diagnostic acumen. My 7-year recurring morning sneezing and sinus headaches stopped completely."
+  },
+  {
+    name: "Anjali Desai",
+    initials: "AD",
+    badge: "Alopecia Areata",
+    condition: "Patchy Alopecia Hair Loss",
+    title: "Terminal Hair Regrowth in 3 Months",
+    stars: 5,
+    review: "Had two circular bald patches on my scalp. Dr. Jay's remedies stimulated natural follicular regrowth without steroid injections. Full healthy hair restored!"
+  },
+  {
+    name: "Vikram Solanki",
+    initials: "VS",
+    badge: "Skin Warts",
+    condition: "Facial & Neck Warts",
+    title: "Painless Clearance Without Surgery",
+    stars: 5,
+    review: "Had 5 stubborn warts on face and neck. Within 6 weeks of gentle sweet pills, all warts dried and shed off naturally with zero scars or pigmentation."
   }
 ];
 

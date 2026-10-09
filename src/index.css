@@ -297,6 +297,41 @@
   }
 }
 
+/* Reviews Carousel Track & Cards */
+.reviews-carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.75rem;
+  padding-top: 0.25rem;
+}
+
+.reviews-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-carousel-card {
+  flex: 0 0 calc(100% - 1rem);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .reviews-carousel-card {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .reviews-carousel-card {
+    flex: 0 0 calc(33.333% - 0.85rem);
+  }
+}
+
 /* ==========================================================================
    Animations
    ========================================================================== */

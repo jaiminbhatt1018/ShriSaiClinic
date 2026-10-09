@@ -7,12 +7,14 @@ import { withCardHover } from '../../hoc/withCardHover';
 import { 
   Sparkles, 
   ShieldAlert, 
+  ShieldCheck,
   Sun, 
   Feather, 
   Wind, 
   Heart, 
   Activity, 
   Baby, 
+  Flower2,
   ArrowRight, 
   Check, 
   ChevronLeft, 
@@ -20,11 +22,29 @@ import {
   MousePointer 
 } from 'lucide-react';
 
+const FaceGlowIcon: React.FC<{ className?: string }> = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="8" />
+    <path d="M9 11h.01" />
+    <path d="M15 11h.01" />
+    <path d="M9.5 15a3.5 3.5 0 0 0 5 0" />
+    <path d="M19 4v2" />
+    <path d="M20 5h-2" />
+    <path d="M4 19v2" />
+    <path d="M5 20H3" />
+    <path d="M20 18v2" />
+    <path d="M21 19h-2" />
+  </svg>
+);
+
 const ServiceIconMap: Record<string, React.FC<{ className?: string }>> = {
+  FaceGlow: FaceGlowIcon,
   Sparkles,
   ShieldAlert,
+  ShieldCheck,
   Sun,
   Feather,
+  Flower2,
   Wind,
   Heart,
   Activity,
@@ -38,20 +58,29 @@ interface ServiceCardProps {
 
 const ServiceCardBase: React.FC<ServiceCardProps> = ({ service, onBook }) => {
   const IconComponent = ServiceIconMap[service.iconName] || Activity;
+  const isWomenHealth = service.departmentBadge.toLowerCase().includes('women') || service.id === 'pcod';
 
   return (
-    <div className="medical-card p-6 sm:p-7 flex flex-col justify-between h-full bg-white border border-slate-200 rounded-3xl shadow-xs hover:border-primary-300 transition duration-300">
+    <div className={`medical-card p-6 sm:p-7 flex flex-col justify-between h-full bg-white border ${
+      isWomenHealth ? 'border-pink-200/80 hover:border-pink-400' : 'border-slate-200 hover:border-primary-300'
+    } rounded-3xl shadow-xs transition duration-300`}>
       <div>
         {/* Icon & Badge */}
-        <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-4 border border-primary-200">
+        <div className={`w-12 h-12 rounded-xl ${
+          isWomenHealth ? 'bg-pink-50 text-pink-500 border-pink-200' : 'bg-primary-50 text-primary-600 border-primary-200'
+        } flex items-center justify-center mb-4 border`}>
           <IconComponent className="w-6 h-6" />
         </div>
 
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-2 gap-2">
           <h3 className="font-heading font-bold text-xl text-slate-900">
             {service.title}
           </h3>
-          <span className="text-xs px-2.5 py-0.5 rounded-full bg-primary-100 text-primary-800 font-bold shrink-0">
+          <span className={`text-xs px-2.5 py-0.5 rounded-full font-extrabold shrink-0 ${
+            isWomenHealth 
+              ? 'bg-pink-50 text-pink-600 border border-pink-200 shadow-xs' 
+              : 'bg-primary-100 text-primary-800'
+          }`}>
             {service.departmentBadge}
           </span>
         </div>
@@ -64,7 +93,7 @@ const ServiceCardBase: React.FC<ServiceCardProps> = ({ service, onBook }) => {
         <ul className="text-xs text-slate-600 space-y-1.5 mb-6">
           {service.bulletPoints.map((bullet, idx) => (
             <li key={idx} className="flex items-center gap-2">
-              <Check className="w-3.5 h-3.5 text-primary-600 shrink-0" />
+              <Check className={`w-3.5 h-3.5 shrink-0 ${isWomenHealth ? 'text-pink-500' : 'text-primary-600'}`} />
               <span>{bullet}</span>
             </li>
           ))}
@@ -74,7 +103,11 @@ const ServiceCardBase: React.FC<ServiceCardProps> = ({ service, onBook }) => {
       {/* Book Care Button */}
       <button
         onClick={() => onBook(service.bookingSubject)}
-        className="w-full py-2.5 rounded-xl btn-secondary text-xs flex items-center justify-center gap-2 cursor-pointer transition active:scale-95"
+        className={`w-full py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 cursor-pointer transition active:scale-95 ${
+          isWomenHealth 
+            ? 'bg-pink-50 hover:bg-pink-100 text-pink-700 border border-pink-300 font-bold' 
+            : 'btn-secondary'
+        }`}
       >
         <span>Book Consultation</span>
         <ArrowRight className="w-3.5 h-3.5" />
