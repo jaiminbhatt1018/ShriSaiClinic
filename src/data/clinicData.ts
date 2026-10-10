@@ -100,6 +100,24 @@ export const CLINICAL_CASES: ClinicalCase[] = [
     afterImg: "/assets/cases/seborrhea_after.jpg",
     disclaimer: "Case SSC-SD-412 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Long-term sustained clearance",
     bookingSubject: "Seborrheic Dermatitis Inquiry"
+  },
+  {
+    id: "kidneystone",
+    category: "Renal & Chronic Care",
+    title: "Kidney Stone Expulsion (Non-Surgical)",
+    aspectRatio: "542 / 487",
+    duration: "3 Weeks",
+    method: "Constitutional",
+    recovery: "Stone Expelled",
+    description: "Symptomatic renal calculus (kidney stone) with acute colic. Targeted constitutional homeopathy facilitated natural smooth muscle relaxation and calculus passage, resulting in painless natural stone expulsion without surgical lithotripsy or stent intervention.",
+    highlights: [
+      "Painless natural stone expulsion without lithotripsy or surgery",
+      "Resolved acute renal colic & prevents recurrent stone formation"
+    ],
+    beforeImg: "/assets/cases/kidneystone_poster.jpg",
+    afterImg: "/assets/cases/kidneystone_poster.jpg",
+    disclaimer: "Case SSC-KS-523 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Verified actual stone expelled post-treatment",
+    bookingSubject: "Kidney Stone Treatment Inquiry"
   }
 ];
 

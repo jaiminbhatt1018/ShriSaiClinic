@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useAppointment } from '../../context/AppointmentContext';
 import { CLINICAL_CASES } from '../../data/clinicData';
 import { withSectionWrapper } from '../../hoc/withSectionWrapper';
@@ -16,9 +16,20 @@ const BeforeAfterSliderBase: React.FC = () => {
   const [currentCaseIndex, setCurrentCaseIndex] = useState(0);
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const activeCase = CLINICAL_CASES[currentCaseIndex];
+
+  const prevCase = useCallback(() => {
+    setCurrentCaseIndex((prev) => (prev === 0 ? CLINICAL_CASES.length - 1 : prev - 1));
+    setSliderPos(50);
+  }, []);
+
+  const nextCase = useCallback(() => {
+    setCurrentCaseIndex((prev) => (prev === CLINICAL_CASES.length - 1 ? 0 : prev + 1));
+    setSliderPos(50);
+  }, []);
 
   // Keyboard navigation
   useEffect(() => {
@@ -32,7 +43,16 @@ const BeforeAfterSliderBase: React.FC = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [prevCase, nextCase]);
+
+  // Automatic scrolling ticker (4.5s)
+  useEffect(() => {
+    if (isPaused || isDragging) return;
+    const timer = setInterval(() => {
+      nextCase();
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused, isDragging, nextCase]);
 
   const handlePointerDown = () => {
     setIsDragging(true);
@@ -50,18 +70,14 @@ const BeforeAfterSliderBase: React.FC = () => {
     setIsDragging(false);
   };
 
-  const prevCase = () => {
-    setCurrentCaseIndex((prev) => (prev === 0 ? CLINICAL_CASES.length - 1 : prev - 1));
-    setSliderPos(50);
-  };
-
-  const nextCase = () => {
-    setCurrentCaseIndex((prev) => (prev === CLINICAL_CASES.length - 1 ? 0 : prev + 1));
-    setSliderPos(50);
-  };
-
   return (
-    <div className="max-w-5xl mx-auto bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-md">
+    <div 
+      className="max-w-5xl mx-auto bg-white border border-slate-200 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-md"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
         
         {/* Left Column: Interactive Slider Canvas (7 cols) */}
@@ -83,9 +99,10 @@ const BeforeAfterSliderBase: React.FC = () => {
             <span className="slider-badge-after">After</span>
 
             {/* Base Image (After) */}
-            <picture className="contents">
+            <picture key={`after-pic-${activeCase.id}`} className="contents">
               <source srcSet={activeCase.afterImg.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
               <img
+                key={`after-img-${activeCase.id}`}
                 src={activeCase.afterImg}
                 alt={`Clinical Recovery After Treatment - ${activeCase.title} by Dr. Jay Bhatt at Shri Sai Clinic, Vasada`}
                 width={600}
@@ -97,9 +114,10 @@ const BeforeAfterSliderBase: React.FC = () => {
             </picture>
 
             {/* Clipped Overlay Image (Before) */}
-            <picture className="contents">
+            <picture key={`before-pic-${activeCase.id}`} className="contents">
               <source srcSet={activeCase.beforeImg.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
               <img
+                key={`before-img-${activeCase.id}`}
                 src={activeCase.beforeImg}
                 alt={`Clinical Presentation Before Treatment - ${activeCase.title} - Shri Sai Clinic, Vasada, Gujarat`}
                 width={600}
