@@ -61,7 +61,7 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
       `_Submitted via Shri Sai Clinic Online Portal_`
     );
-    return `https://wa.me/919054520603?text=${text}`;
+    return `https://wa.me/917600239816?text=${text}`;
   };
 
   const generateTicket = async (formData: AppointmentFormData): Promise<AppointmentData> => {

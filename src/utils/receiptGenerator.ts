@@ -199,7 +199,7 @@ export async function generateReceiptCanvas(ticket: AppointmentData): Promise<HT
   ctx.textAlign = 'center';
   ctx.fillStyle = '#64748b';
   ctx.font = '500 10.5px "Plus Jakarta Sans", system-ui, sans-serif';
-  ctx.fillText('Samrudhi Complex, Opp. Palace Gate, Vansda, Gujarat • Helpline: +91 90545 20603', width / 2, 488);
+  ctx.fillText('Samrudhi Complex, Opp. Palace Gate, Vansda, Gujarat • Helpline: +91 76002 39816', width / 2, 488);
 
   ctx.fillStyle = '#94a3b8';
   ctx.font = '500 9.5px "Plus Jakarta Sans", system-ui, sans-serif';

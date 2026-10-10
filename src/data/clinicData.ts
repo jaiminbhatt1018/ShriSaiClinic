@@ -9,15 +9,15 @@ export const CLINIC_INFO = {
   phone: "+91 76002 39816",
   phoneRaw: "917600239816",
   phoneTel: "tel:+917600239816",
-  doctorWhatsapp: "9054520603",
-  doctorWhatsappRaw: "919054520603",
-  doctorPhoneFormatted: "+91 90545 20603",
+  doctorWhatsapp: "7600239816",
+  doctorWhatsappRaw: "917600239816",
+  doctorPhoneFormatted: "+91 76002 39816",
   whatsappUrl: "https://wa.me/917600239816?text=Hello%20Shri%20Sai%20Clinic,%20I%20would%20like%20to%20inquire%20about%20a%20consultation.",
-  email: "contact@shrisaihomoeoclinic.com",
+  email: "appointments.shrisaiclinic@gmail.com",
   address: "Samrudhi Complex in front of Palace gate new Depo Road Vasada Gujarat",
   mapsUrl: "https://share.google/myiPzk2hQAKWgQg6f",
   stats: {
-    yearsExperience: 5,
+    yearsExperience: 10,
     treatedPatients: 5000,
     reliefRate: 98.4,
     nonSteroidal: 100
@@ -236,15 +236,6 @@ export const TESTIMONIALS: Testimonial[] = [
     title: "3 Years of Flaking Plaques Healed",
     stars: 5,
     review: "Had aggressive scalp flaking and intense itchiness. In just 12 weeks of gentle classical homoeopathy, my scalp cleared completely and stayed 100% plaque-free."
-  },
-  {
-    name: "Dr. K. Mehta (M.D.)",
-    initials: "KM",
-    badge: "Allergies & Sinus",
-    condition: "Chronic Allergic Sinusitis",
-    title: "Astonishing Clinical Precision",
-    stars: 5,
-    review: "As an allopathic physician, I was amazed by Dr. Jay's diagnostic acumen. My 7-year recurring morning sneezing and sinus headaches stopped completely."
   },
   {
     name: "Anjali Desai",

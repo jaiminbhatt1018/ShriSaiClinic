@@ -154,7 +154,7 @@ const AppointmentSectionBase: React.FC = () => {
               className="w-full py-3 rounded-xl border border-primary-500 bg-primary-50 text-primary-800 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary-100 transition shadow-xs"
             >
               <Phone className="w-4 h-4 text-primary-600 shrink-0" />
-              <span>Call Clinic Desk (+91 90545 20603)</span>
+              <span>Call Clinic Desk (+91 76002 39816)</span>
             </a>
           </div>
 

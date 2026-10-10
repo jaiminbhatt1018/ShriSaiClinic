@@ -130,7 +130,7 @@ const TicketModalContent: React.FC<TicketModalContentProps> = ({ onClose }) => {
               {CLINIC_INFO.doctor} ({CLINIC_INFO.qualifications.split('•')[0].trim()})
             </p>
             <p className="text-[10px] text-slate-500 leading-tight mt-0.5 truncate">
-              Samrudhi Complex, Vansda, Gujarat &bull; +91 90545 20603
+              Samrudhi Complex, Vansda, Gujarat &bull; +91 76002 39816
             </p>
           </div>
         </div>
@@ -168,10 +168,10 @@ const TicketModalContent: React.FC<TicketModalContentProps> = ({ onClose }) => {
           ) : (
             <Download className="w-4 h-4 text-white" />
           )}
-          <span>Download Receipt Slip (1-Page)</span>
+          <span>Download Receipt Slip</span>
         </button>
 
-        {/* Secondary: Print / Save PDF 1-Page slip */}
+        {/* Secondary: Print / Save PDF slip */}
         <div className="text-center">
           <button
             type="button"
@@ -184,7 +184,7 @@ const TicketModalContent: React.FC<TicketModalContentProps> = ({ onClose }) => {
             ) : (
               <Printer className="w-3 h-3 text-teal-600" />
             )}
-            <span>or Print / Save as PDF (1 Page)</span>
+            <span>or Print / Save as PDF</span>
           </button>
         </div>
 

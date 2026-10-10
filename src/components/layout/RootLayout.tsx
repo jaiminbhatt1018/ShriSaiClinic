@@ -4,7 +4,6 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { BookingModal } from '../modals/BookingModal';
 import { TicketModal } from '../modals/TicketModal';
-import { McpStatusBadge } from '../McpStatusBadge';
 import { CLINIC_INFO } from '../../data/clinicData';
 
 export const RootLayout: React.FC = () => {
@@ -40,9 +39,6 @@ export const RootLayout: React.FC = () => {
       {/* Global Modals (Context-driven) */}
       <BookingModal />
       <TicketModal />
-
-      {/* Vite MCP Status Indicator */}
-      <McpStatusBadge />
     </div>
   );
 };
