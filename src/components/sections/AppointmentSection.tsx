@@ -25,7 +25,7 @@ const AppointmentSectionBase: React.FC = () => {
     patientName: '',
     patientPhone: '',
     appointmentDate: todayStr,
-    sessionSlot: 'Morning (10:00 AM - 1:30 PM)',
+    sessionSlot: 'Morning (9:00 AM - 12:00 PM)',
     specialtyConcern: 'Skin Care & Dermatology',
     patientNotes: ''
   });
@@ -83,16 +83,12 @@ const AppointmentSectionBase: React.FC = () => {
 
           <div className="space-y-3 text-sm">
             <div className="flex justify-between items-center pb-2.5 border-b border-slate-200">
-              <span className="font-medium text-slate-700">Mon – Sat (Morning Session)</span>
-              <span className="font-bold text-primary-700">10:00 AM – 1:30 PM</span>
-            </div>
-            <div className="flex justify-between items-center pb-2.5 border-b border-slate-200">
-              <span className="font-medium text-slate-700">Mon – Sat (Evening Session)</span>
-              <span className="font-bold text-primary-700">5:30 PM – 9:00 PM</span>
+              <span className="font-medium text-slate-700">Mon – Sun (Morning Session)</span>
+              <span className="font-bold text-primary-700">9:00 AM – 12:00 PM</span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="font-medium text-slate-700">Sunday (Special Batch)</span>
-              <span className="font-bold text-slate-900">10:00 AM – 1:00 PM</span>
+              <span className="font-medium text-slate-700">Mon – Sun (Evening Session)</span>
+              <span className="font-bold text-primary-700">3:00 PM – 8:00 PM</span>
             </div>
           </div>
         </div>
@@ -251,9 +247,8 @@ const AppointmentSectionBase: React.FC = () => {
                 onChange={(e) => setFormData({ ...formData, sessionSlot: e.target.value })}
                 className="w-full px-4 py-3 sm:py-2.5 rounded-xl border border-slate-300 focus:border-primary-600 focus:ring-1 focus:ring-primary-200 outline-none text-base sm:text-sm transition bg-white"
               >
-                <option value="Morning (10:00 AM - 1:30 PM)">Morning (10:00 AM – 1:30 PM)</option>
-                <option value="Evening (5:30 PM - 9:00 PM)">Evening (5:30 PM – 9:00 PM)</option>
-                <option value="Sunday Batch (10:00 AM - 1:00 PM)">Sunday Batch (10:00 AM – 1:00 PM)</option>
+                <option value="Morning (9:00 AM - 12:00 PM)">Morning (9:00 AM – 12:00 PM)</option>
+                <option value="Evening (3:00 PM - 8:00 PM)">Evening (3:00 PM – 8:00 PM)</option>
               </select>
             </div>
           </div>

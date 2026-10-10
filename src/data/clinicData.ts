@@ -23,9 +23,8 @@ export const CLINIC_INFO = {
     nonSteroidal: 100
   },
   opdHours: [
-    { label: "Mon – Sat (Morning Session)", time: "10:00 AM – 1:30 PM", highlight: true },
-    { label: "Mon – Sat (Evening Session)", time: "5:30 PM – 9:00 PM", highlight: true },
-    { label: "Sunday (Special Batch)", time: "10:00 AM – 1:00 PM", highlight: false }
+    { label: "Mon – Sun (Morning Session)", time: "9:00 AM – 12:00 PM", highlight: true },
+    { label: "Mon – Sun (Evening Session)", time: "3:00 PM – 8:00 PM", highlight: true }
   ]
 };
 
