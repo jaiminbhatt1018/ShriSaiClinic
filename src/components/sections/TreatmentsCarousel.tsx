@@ -249,7 +249,8 @@ export const TreatmentsCarousel = withSectionWrapper(TreatmentsCarouselBase, {
   id: 'services',
   background: 'white',
   badge: 'Clinical Departments',
-  title: 'Specialized Homoeopathy & Advanced Skin Therapies',
-  subtitle: 'Every individual is biochemically unique. We prescribe remedies based on your constitution and underlying pathology to deliver lasting relief without suppressing symptoms.',
+  title: 'Specialized 100% Steroid-Free Skin & Hair Treatments in Vasada',
+  subtitle: 'Personalized constitutional homeopathy for scalp psoriasis, alopecia areata, chronic eczema, and non-surgical skin tags led by Dr. Jay Bhatt (BHMS) in Vasada, Gujarat.',
   overflowHidden: true
 });
+

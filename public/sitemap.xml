@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://shrisaiclinic.com/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://shrisaiclinic.com/assets/images/dr-jay-bhatt-healing-teal.jpeg</image:loc>
+      <image:title>Dr. Jay Bhatt (BHMS) - Shri Sai Clinic, Vasada</image:title>
+      <image:caption>100% Steroid-Free Homeopathic Skin &amp; Hair Care Specialist in Vasada, Gujarat</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://shrisaiclinic.com/assets/images/logo.png</image:loc>
+      <image:title>Shri Sai Clinic Logo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://shrisaiclinic.com/#services</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shrisaiclinic.com/#clinical-results</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shrisaiclinic.com/#testimonials</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shrisaiclinic.com/#booking</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://shrisaiclinic.com/#faqs</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

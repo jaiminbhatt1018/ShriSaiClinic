@@ -1,0 +1,13 @@
+# Robots.txt for Shri Sai Clinic (shrisaiclinic.com)
+# Primary Clinical Practice of Dr. Jay Bhatt (BHMS), Vasada, Gujarat, India
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*?*token=
+
+# Sitemap Declaration
+Sitemap: https://shrisaiclinic.com/sitemap.xml

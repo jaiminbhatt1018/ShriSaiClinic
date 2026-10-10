@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
             {/* Top Verified Location Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 text-primary-800 border border-primary-200 text-xs font-bold tracking-wide uppercase">
               <span className="w-2 h-2 rounded-full bg-primary-600 animate-pulse" />
-              <span>Holistic Clinical Healing &bull; Vansda, Gujarat</span>
+              <span>100% Steroid-Free Homeopathic Care &bull; Vasada &amp; Vansda, Gujarat</span>
             </div>
 
             {/* Main Headline */}
@@ -47,16 +47,16 @@ export const Hero: React.FC = () => {
               Through Scientific Homoeopathy
             </h1>
 
-            {/* Subheadline with Doctor Identity */}
+            {/* Subheadline with Doctor Identity & Local Target Keywords */}
             <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor} ({CLINIC_INFO.qualifications.split('•')[0].trim()})</span>, General Physician. Personalized constitutional treatment for stubborn skin ailments, chronic hair fall, and deep pathology — completely free from steroid side effects.
+              Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor} ({CLINIC_INFO.qualifications.split('•')[0].trim()})</span>, General Physician &amp; Skin Specialist in Vasada. Personalized constitutional treatment for stubborn scalp psoriasis, alopecia hair fall, chronic eczema, and skin tags — 100% free from steroid side effects.
             </p>
 
             {/* Two Key Feature Pills */}
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3 pt-2 text-xs sm:text-sm font-bold text-slate-800 max-w-md mx-auto lg:mx-0">
               <div className="flex items-center gap-2 bg-slate-50 p-2.5 sm:p-3 rounded-2xl border border-slate-200 shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-primary-600 shrink-0" />
-                <span>Zero Side Effects</span>
+                <span>Zero Steroids or Cortisone</span>
               </div>
               <div className="flex items-center gap-2 bg-slate-50 p-2.5 sm:p-3 rounded-2xl border border-slate-200 shadow-xs">
                 <Award className="w-4 h-4 text-primary-600 shrink-0" />
@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
             {/* Doctor Availability Footer Note */}
             <div className="flex items-center justify-center lg:justify-start gap-2 text-[11px] sm:text-xs text-slate-500 pt-1 sm:pt-2">
               <BadgeCheck className="w-4 h-4 text-primary-600 shrink-0" />
-              <span>Walk-ins welcome &bull; Priority for booked appointments</span>
+              <span>Walk-ins welcome at Samrudhi Complex &bull; Priority for booked appointments</span>
             </div>
 
           </div>
@@ -98,12 +98,19 @@ export const Hero: React.FC = () => {
               <div className="relative rounded-3xl p-2.5 sm:p-3 bg-slate-100 shadow-xl border border-slate-200">
                 
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-200">
-                  {/* Authentic Clinical Doctor Photo */}
-                  <img
-                    src="/assets/images/dr-jay-bhatt-healing-teal.jpeg"
-                    alt={`${CLINIC_INFO.doctor} - General Physician & Classical Homoeopath`}
-                    className="w-full h-full object-cover object-top"
-                  />
+                  {/* Authentic Clinical Doctor Photo with WebP Picture Element */}
+                  <picture>
+                    <source srcSet="/assets/images/dr-jay-bhatt-healing-teal.webp" type="image/webp" />
+                    <img
+                      src="/assets/images/dr-jay-bhatt-healing-teal.jpeg"
+                      alt={`${CLINIC_INFO.doctor} (BHMS) - 100% Steroid-Free Homeopathy Skin & Hair Care Specialist at Shri Sai Clinic, Vasada, Gujarat`}
+                      width={480}
+                      height={600}
+                      fetchPriority="high"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   
                   {/* Bottom Caption inside photo */}
@@ -119,6 +126,7 @@ export const Hero: React.FC = () => {
                     </p>
                   </div>
                 </div>
+
 
                 {/* Floating Badge 1: Experience (Left-Center) with gentle Motion Float */}
                 <motion.div

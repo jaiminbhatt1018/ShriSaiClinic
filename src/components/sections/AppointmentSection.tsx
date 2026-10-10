@@ -321,6 +321,7 @@ export const AppointmentSection = withSectionWrapper(AppointmentSectionBase, {
   id: 'booking',
   background: 'white',
   badge: 'Book Consultation • OPD Hours',
-  title: 'Schedule Your Consultation & Visiting Hours',
-  subtitle: 'Select an appointment slot below to request a consultation with Dr. Jay Bhatt, or visit during open OPD hours.'
+  title: 'Schedule Consultation • OPD Visiting Hours in Vasada',
+  subtitle: 'Book an appointment slot with Dr. Jay Bhatt (BHMS) at Samrudhi Complex, Vasada (Vansda), Gujarat, or visit during open OPD hours.'
 });
+

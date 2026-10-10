@@ -49,11 +49,17 @@ export const Navbar: React.FC = () => {
           {/* Clinic Brand Identity */}
           <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-200">
-              <img
-                src="/assets/images/logo.png"
-                alt="Shri Sai Clinic Logo"
-                className="w-full h-full object-contain filter drop-shadow-xs"
-              />
+              <picture>
+                <source srcSet="/assets/images/logo.webp" type="image/webp" />
+                <img
+                  src="/assets/images/logo.png"
+                  alt="Shri Sai Clinic - 100% Steroid-Free Skin &amp; Hair Care by Dr. Jay Bhatt"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain filter drop-shadow-xs"
+                />
+              </picture>
+
             </div>
             <div>
               <div className="flex items-center gap-2">

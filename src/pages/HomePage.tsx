@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from 'react';
+import { SEOHead } from '../components/common/SEOHead';
 import { Hero } from '../components/sections/Hero';
 import { StatsBanner } from '../components/sections/StatsBanner';
 import { SectionSkeleton } from '../components/common/SectionSkeleton';
+
 
 // Code Splitting with React.lazy
 const BeforeAfterSlider = lazy(() =>
@@ -37,7 +39,11 @@ const FaqSection = lazy(() =>
 export const HomePage: React.FC = () => {
   return (
     <div className="flex-grow">
+      {/* Dynamic SEO Meta & Structured Data */}
+      <SEOHead />
+
       {/* 1. Hero Showcase (Eagerly Loaded) */}
+
       <Hero />
 
       {/* 2. Micro-Animated Stats Banner (Eagerly Loaded) */}

@@ -83,20 +83,35 @@ const BeforeAfterSliderBase: React.FC = () => {
             <span className="slider-badge-after">After</span>
 
             {/* Base Image (After) */}
-            <img
-              src={activeCase.afterImg}
-              alt={`After Treatment - ${activeCase.title}`}
-              className="before-after-img after-layer"
-            />
+            <picture className="contents">
+              <source srcSet={activeCase.afterImg.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
+              <img
+                src={activeCase.afterImg}
+                alt={`Clinical Recovery After Treatment - ${activeCase.title} by Dr. Jay Bhatt at Shri Sai Clinic, Vasada`}
+                width={600}
+                height={675}
+                loading="lazy"
+                decoding="async"
+                className="before-after-img after-layer"
+              />
+            </picture>
 
             {/* Clipped Overlay Image (Before) */}
-            <img
-              src={activeCase.beforeImg}
-              alt={`Before Treatment - ${activeCase.title}`}
-              className="before-after-img before-layer"
-            />
+            <picture className="contents">
+              <source srcSet={activeCase.beforeImg.replace(/\.(jpg|jpeg|png)$/, '.webp')} type="image/webp" />
+              <img
+                src={activeCase.beforeImg}
+                alt={`Clinical Presentation Before Treatment - ${activeCase.title} - Shri Sai Clinic, Vasada, Gujarat`}
+                width={600}
+                height={675}
+                loading="lazy"
+                decoding="async"
+                className="before-after-img before-layer"
+              />
+            </picture>
 
             {/* Draggable Divider Handle */}
+
             <div
               className="before-after-divider"
               style={{ left: `${sliderPos}%` }}
@@ -254,6 +269,7 @@ export const BeforeAfterSlider = withSectionWrapper(BeforeAfterSliderBase, {
   id: 'clinical-results',
   background: 'slate-50',
   badge: 'Clinical Case Studies',
-  title: 'Real Treatment Results • Before & After',
-  subtitle: 'Drag the interactive slider handle left and right to inspect verified patient recovery achieved through classical homeopathy.'
+  title: 'Verified Homeopathic Recovery • Before & After Results in Vasada',
+  subtitle: 'Inspect authentic clinical recovery achieved through 100% steroid-free constitutional homeopathy led by Dr. Jay Bhatt in Vasada (Vansda), Gujarat.'
 });
+

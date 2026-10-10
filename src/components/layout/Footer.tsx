@@ -13,15 +13,23 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center shrink-0 shadow-sm border border-white/10">
-                <img
-                  src="/assets/images/logo.png"
-                  alt="Shri Sai Clinic Logo"
-                  className="w-full h-full object-contain filter drop-shadow-xs"
-                />
+                <picture>
+                  <source srcSet="/assets/images/logo.webp" type="image/webp" />
+                  <img
+                    src="/assets/images/logo.png"
+                    alt="Shri Sai Clinic Logo"
+                    width={40}
+                    height={40}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain filter drop-shadow-xs"
+                  />
+                </picture>
               </div>
               <span className="font-heading font-extrabold text-xl text-white tracking-tight">
                 {CLINIC_INFO.name}
               </span>
+
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
@@ -90,7 +98,7 @@ export const Footer: React.FC = () => {
               Clinic Contact &amp; Reach
             </h4>
             
-            <div className="space-y-2.5 text-xs text-slate-400">
+            <address className="not-italic space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-primary-400 shrink-0 mt-0.5" />
                 <p className="leading-snug">{CLINIC_INFO.address}</p>
@@ -98,18 +106,18 @@ export const Footer: React.FC = () => {
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-primary-400 shrink-0" />
-                <a href={CLINIC_INFO.phoneTel} className="hover:text-white font-semibold transition">
+                <a href={CLINIC_INFO.phoneTel} className="hover:text-white font-semibold transition" aria-label="Call Shri Sai Clinic">
                   {CLINIC_INFO.phone}
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-primary-400 shrink-0" />
-                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-white transition">
+                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-white transition" aria-label="Email Shri Sai Clinic">
                   {CLINIC_INFO.email}
                 </a>
               </div>
-            </div>
+            </address>
 
             <div className="pt-2">
               <a
@@ -117,11 +125,13 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-primary-300 text-xs font-semibold border border-slate-700 transition"
+                aria-label="Find Shri Sai Clinic on Google Maps"
               >
                 <span>Open in Google Maps</span>
                 <ExternalLink className="w-3 h-3 ml-0.5" />
               </a>
             </div>
+
           </div>
 
         </div>
