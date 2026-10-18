@@ -33,12 +33,12 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Dr. Jay Bhatt (BHMS) provides pure classical constitutional homeopathy and clinical dermatological therapies for deep-rooted pathology and lasting cure.
+              Dr. Jay Bhatt ({CLINIC_INFO.legalDoctorName}, BHMS) provides pure classical constitutional homeopathy and clinical dermatological therapies for deep-rooted chronic pathology and long-term constitutional health.
             </p>
 
             <div className="pt-1 flex items-center gap-2 text-xs text-emerald-400 font-semibold">
               <ShieldCheck className="w-4 h-4 shrink-0" />
-              <span>100% Non-Steroidal Classical Care</span>
+              <span>HPI Pharmacopoeia Compliant Practice</span>
             </div>
           </div>
 
@@ -141,9 +141,14 @@ export const Footer: React.FC = () => {
           <p>
             &copy; {new Date().getFullYear()} {CLINIC_INFO.name}. All Rights Reserved. Vansda, Gujarat.
           </p>
-          <p className="italic text-[11px] text-slate-500">
-            Dr. Jay Bhatt (BHMS) &bull; Classical Homoeopathy &bull; General Physician
-          </p>
+          <div className="text-center sm:text-right text-[11px] text-slate-400 space-y-0.5">
+            <p className="font-semibold text-slate-300">
+              {CLINIC_INFO.doctor} ({CLINIC_INFO.legalDoctorName}) &bull; {CLINIC_INFO.qualifications}
+            </p>
+            <p>
+              Reg. No: {CLINIC_INFO.registrationNumber} &bull; {CLINIC_INFO.council} &bull; RMP
+            </p>
+          </div>
         </div>
 
       </div>

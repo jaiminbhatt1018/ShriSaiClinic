@@ -101,7 +101,7 @@ const AppointmentSectionBase: React.FC = () => {
               <MapPin className="w-5 h-5" />
             </div>
             <div>
-              <h4 className="font-bold text-slate-900 text-sm">Clinic Address</h4>
+              <h4 className="font-bold text-slate-900 text-sm">Visit Our Clinic</h4>
               <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
                 {CLINIC_INFO.name}, {CLINIC_INFO.address}
               </p>
@@ -306,7 +306,7 @@ const AppointmentSectionBase: React.FC = () => {
           </button>
 
           <p className="text-[11px] text-slate-400 text-center">
-            * Your appointment request is automatically sent to the clinic desk via email for confirmation.
+            * This online request schedules an in-person clinical consultation. For acute medical emergencies, please contact emergency medical services directly.
           </p>
 
         </form>
@@ -320,8 +320,8 @@ const AppointmentSectionBase: React.FC = () => {
 export const AppointmentSection = withSectionWrapper(AppointmentSectionBase, {
   id: 'booking',
   background: 'white',
-  badge: 'Book Consultation • OPD Hours',
-  title: 'Schedule Consultation • OPD Visiting Hours in Vasada',
-  subtitle: 'Book an appointment slot with Dr. Jay Bhatt (BHMS) at Samrudhi Complex, Vasada (Vansda), Gujarat, or visit during open OPD hours.'
+  badge: 'Book Consultation',
+  title: 'Book Your Consultation',
+  subtitle: 'View OPD visiting hours and plan your visit to Shri Sai Clinic.'
 });
 

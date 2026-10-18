@@ -176,8 +176,8 @@ export const ReviewsSection = withSectionWrapper(ReviewsSectionBase, {
   id: 'testimonials',
   background: 'slate-50',
   badge: 'Patient Stories',
-  title: 'Patient Reviews & Testimonials • Shri Sai Clinic Vasada',
-  subtitle: 'Read authentic recovery experiences from patients treated through 100% steroid-free classical homeopathy by Dr. Jay Bhatt in Gujarat.',
+  title: 'Patient Testimonials',
+  subtitle: 'Hear directly from individuals who restored their health with us.',
   overflowHidden: true
 });
 

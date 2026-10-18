@@ -13,14 +13,14 @@ export interface SEOHeadProps {
 }
 
 const DEFAULT_SEO = {
-  title: 'Shri Sai Clinic | 100% Steroid-Free Skin & Hair Care by Dr. Jay Bhatt, Vasada',
+  title: 'Shri Sai Clinic | Advanced Homeopathic Care by Dr. Jay Bhatt',
   description:
-    'Specialized classical homeopathic clinic in Vasada (Vansda), Gujarat led by Dr. Jay Bhatt (BHMS). Offering 100% steroid-free constitutional treatments for scalp psoriasis, alopecia areata hair loss, chronic eczema, and non-surgical skin tags.',
+    'Specialized classical homeopathic clinic led by Dr. Jay Bhatt (BHMS) in Vansda, Gujarat. Offering HPI-standard non-steroidal constitutional care for scalp psoriasis, alopecia areata, chronic eczema, and non-surgical skin tag removal.',
   canonicalUrl: 'https://shrisaiclinic.com/',
   ogImage: 'https://shrisaiclinic.com/assets/images/dr-jay-bhatt-healing-teal.jpeg',
   ogType: 'website' as const,
   keywords:
-    'Homeopathic skin care Vasada, Steroid free hair treatment Gujarat, Dr. Jay Bhatt homeopathy clinic, Best skin specialist Vasada, Homeopathy clinic Vansda, Scalp psoriasis homeopathy Gujarat, Alopecia treatment Vansda, Non surgical skin tags Vasada, Chronic eczema treatment Navsari'
+    'Homeopathy clinic Vansda, Classical homeopathy Gujarat, Dr. Jay Bhatt, Steroid-free skin treatment, Scalp psoriasis homeopathy, Alopecia areata treatment, Non-surgical skin tag removal, Chronic eczema homeopathy'
 };
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -52,7 +52,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:alt" content="Dr. Jay Bhatt (BHMS) at Shri Sai Clinic, Vasada" />
+      <meta property="og:image:alt" content="Dr. Jay Bhatt (BHMS) at Shri Sai Clinic, Vansda" />
       <meta property="og:locale" content="en_IN" />
       <meta property="og:locale:alternate" content="gu_IN" />
 
@@ -62,9 +62,9 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* 4. Local SEO Geo Tags (Vasada / Vansda, Gujarat, India) */}
+      {/* 4. Local SEO Geo Tags (Vansda, Gujarat, India) */}
       <meta name="geo.region" content="IN-GJ" />
-      <meta name="geo.placename" content="Vasada, Gujarat, India" />
+      <meta name="geo.placename" content="Vansda, Gujarat, India" />
       <meta name="geo.position" content="20.7570;73.3670" />
       <meta name="ICBM" content="20.7570, 73.3670" />
 

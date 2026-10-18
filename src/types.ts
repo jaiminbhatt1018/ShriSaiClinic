@@ -14,6 +14,12 @@ export interface ClinicalCase {
   bookingSubject: string;
 }
 
+export interface ServiceSlide {
+  image: string;
+  alt: string;
+  captionBadge: string;
+}
+
 export interface ServiceItem {
   id: string;
   category: string;
@@ -23,6 +29,7 @@ export interface ServiceItem {
   description: string;
   bulletPoints: string[];
   bookingSubject: string;
+  slides?: ServiceSlide[];
 }
 
 export interface AppointmentFormData {
@@ -64,6 +71,6 @@ export interface FAQItem {
 export interface ClinicStats {
   yearsExperience: number;
   treatedPatients: number;
-  reliefRate: number;
-  nonSteroidal: number;
+  clinicalDepartments: number;
+  pharmacopoeia: string;
 }

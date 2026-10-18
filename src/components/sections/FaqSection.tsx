@@ -63,8 +63,8 @@ export const FaqSection = withSectionWrapper(FaqSectionBase, {
   id: 'faqs',
   background: 'slate-50',
   badge: 'Got Questions?',
-  title: 'Frequently Asked Questions • Homeopathic Skin & Hair Care in Vasada',
-  subtitle: 'Clear, scientific facts about 100% steroid-free Homoeopathic treatments and constitutional care by Dr. Jay Bhatt in Gujarat.',
+  title: 'Frequently Asked Questions',
+  subtitle: 'Clear, scientific information about individualized constitutional homeopathic care by Dr. Jay Bhatt (BHMS).',
   containerClassName: 'max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'
 });
 

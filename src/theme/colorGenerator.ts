@@ -32,16 +32,22 @@ export interface ThemePreset {
 
 export const THEME_PRESETS: ThemePreset[] = [
   {
-    id: 'clinical-sky',
-    name: 'Clinical Sky (Default)',
-    seed: '#0284C7',
-    description: 'Crisp, trustworthy medical cyan-blue palette'
+    id: 'botanical-green',
+    name: 'Botanical Green (Default)',
+    seed: '#146D46',
+    description: 'Specialized clinical botanical green'
   },
   {
     id: 'healing-teal',
     name: 'Healing Teal',
-    seed: '#0D9488',
+    seed: '#039487',
     description: 'Calming, holistic botanical homoeopathic tone'
+  },
+  {
+    id: 'clinical-sky',
+    name: 'Clinical Sky',
+    seed: '#0284C7',
+    description: 'Crisp, trustworthy medical cyan-blue palette'
   },
   {
     id: 'sapphire-health',
@@ -139,6 +145,27 @@ function hslToRgb(h: number, s: number, l: number): { r: number; g: number; b: n
 }
 
 export function generateTonalPalette(seedHex: string): TonalPalette {
+  if (seedHex.toLowerCase() === '#146d46') {
+    return {
+      50: '#effaf5',
+      100: '#dbf5ea',
+      200: '#b9e9d4',
+      300: '#83d8b3',
+      400: '#41c88d',
+      500: '#289a68',
+      600: '#146d46',
+      700: '#105637',
+      800: '#0e442c',
+      900: '#0d3624',
+      950: '#092419',
+      contrastText: '#ffffff',
+      surfaceBorder: '#b9e9d4',
+      surfaceBadgeBg: '#effaf5',
+      surfaceBadgeText: '#0e442c',
+      glow: 'rgba(20, 109, 70, 0.25)'
+    };
+  }
+
   const rgb = hexToRgb(seedHex);
   const { h, s } = rgbToHsl(rgb.r, rgb.g, rgb.b);
 

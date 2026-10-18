@@ -59,10 +59,10 @@ export const HomePage: React.FC = () => {
         <TreatmentsCarousel />
       </Suspense>
 
-      {/* 5. Patient Testimonials & Stories (Lazy Loaded) */}
-      <Suspense fallback={<SectionSkeleton rows={3} />}>
+      {/* 5. Patient Testimonials & Stories (Temporarily hidden) */}
+      {/* <Suspense fallback={<SectionSkeleton rows={3} />}>
         <ReviewsSection />
-      </Suspense>
+      </Suspense> */}
 
       {/* 6. OPD Hours & Instant Token Generator (Lazy Loaded) */}
       <Suspense fallback={<SectionSkeleton rows={2} />}>

@@ -16,18 +16,18 @@
 
 @layer base {
   :root {
-    /* Initial Default Seed Color Scale (Clinical Sky #0284C7) */
-    --color-primary-50: #f0f9ff;
-    --color-primary-100: #e0f2fe;
-    --color-primary-200: #bae6fd;
-    --color-primary-300: #7dd3fc;
-    --color-primary-400: #38bdf8;
-    --color-primary-500: #0ea5e9;
-    --color-primary-600: #0284c7;
-    --color-primary-700: #0369a1;
-    --color-primary-800: #075985;
-    --color-primary-900: #0c4a6e;
-    --color-primary-950: #082f49;
+    /* Initial Default Seed Color Scale (Botanical Green #146D46) */
+    --color-primary-50: #effaf5;
+    --color-primary-100: #dbf5ea;
+    --color-primary-200: #b9e9d4;
+    --color-primary-300: #83d8b3;
+    --color-primary-400: #41c88d;
+    --color-primary-500: #289a68;
+    --color-primary-600: #146d46;
+    --color-primary-700: #105637;
+    --color-primary-800: #0e442c;
+    --color-primary-900: #0d3624;
+    --color-primary-950: #092419;
 
     --primary-blue: var(--color-primary-600);
     --primary-blue-hover: var(--color-primary-700);
@@ -45,7 +45,7 @@
     --badge-emerald-text: #047857;
 
     --primary-contrast: #ffffff;
-    --primary-glow: rgba(2, 132, 199, 0.25);
+    --primary-glow: rgba(20, 109, 70, 0.25);
   }
 
   html {
@@ -71,7 +71,7 @@
    ========================================================================== */
 
 .btn-primary {
-  background-color: var(--color-primary-600, #0284c7);
+  background-color: var(--color-primary-600, #146d46);
   color: var(--primary-contrast, #ffffff);
   font-weight: 700;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -79,23 +79,23 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-700, #0369a1);
+  background-color: var(--color-primary-700, #105637);
   box-shadow: 0 4px 14px var(--primary-glow);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
   background-color: #ffffff;
-  color: var(--color-primary-600, #0284c7);
-  border: 1.5px solid var(--color-primary-600, #0284c7);
+  color: var(--color-primary-600, #146d46);
+  border: 1.5px solid var(--color-primary-600, #146d46);
   font-weight: 700;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-primary-50, #e0f2fe);
-  border-color: var(--color-primary-700, #0369a1);
-  color: var(--color-primary-700, #0369a1);
+  background-color: var(--color-primary-50, #effaf5);
+  border-color: var(--color-primary-700, #105637);
+  color: var(--color-primary-700, #105637);
 }
 
 .medical-card {
@@ -231,7 +231,7 @@
   top: 1rem;
   right: 1rem;
   z-index: 25;
-  background: var(--color-primary-600, #0284c7);
+  background: var(--color-primary-600, #146d46);
   color: #ffffff;
   padding: 0.35rem 0.85rem;
   border-radius: 9999px;
@@ -256,7 +256,7 @@
 
 .carousel-dot.active {
   width: 22px;
-  background-color: var(--color-primary-600, #0284c7);
+  background-color: var(--color-primary-600, #146d46);
 }
 
 /* ==========================================================================

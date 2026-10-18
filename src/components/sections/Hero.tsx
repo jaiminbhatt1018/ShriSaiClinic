@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
             {/* Top Verified Location Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 text-primary-800 border border-primary-200 text-xs font-bold tracking-wide uppercase">
               <span className="w-2 h-2 rounded-full bg-primary-600 animate-pulse" />
-              <span>100% Steroid-Free Homeopathic Care &bull; Vasada &amp; Vansda, Gujarat</span>
+              <span>Registered Medical Practitioner (RMP) &bull; Vansda</span>
             </div>
 
             {/* Main Headline */}
@@ -47,9 +47,9 @@ export const Hero: React.FC = () => {
               Through Scientific Homoeopathy
             </h1>
 
-            {/* Subheadline with Doctor Identity & Local Target Keywords */}
+            {/* Subheadline with Doctor Identity */}
             <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor} ({CLINIC_INFO.qualifications.split('•')[0].trim()})</span>, General Physician &amp; Skin Specialist in Vasada. Personalized constitutional treatment for stubborn scalp psoriasis, alopecia hair fall, chronic eczema, and skin tags — 100% free from steroid side effects.
+              Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor}</span> ({CLINIC_INFO.legalDoctorName}, BHMS). Registered with {CLINIC_INFO.council} (Reg. No. {CLINIC_INFO.registrationNumber}). Personalized constitutional care prepared as per Homoeopathic Pharmacopoeia of India (HPI) standards without steroid suppression.
             </p>
 
             {/* Two Key Feature Pills */}
@@ -103,12 +103,20 @@ export const Hero: React.FC = () => {
                     <source srcSet="/assets/images/dr-jay-bhatt-healing-teal.webp" type="image/webp" />
                     <img
                       src="/assets/images/dr-jay-bhatt-healing-teal.jpeg"
-                      alt={`${CLINIC_INFO.doctor} (BHMS) - 100% Steroid-Free Homeopathy Skin & Hair Care Specialist at Shri Sai Clinic, Vasada, Gujarat`}
+                      alt={`${CLINIC_INFO.doctor} (BHMS) - Classical Homeopath & General Physician at Shri Sai Clinic`}
                       width={480}
                       height={600}
                       fetchPriority="high"
                       decoding="async"
                       className="w-full h-full object-cover object-top"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        const picture = target.closest('picture');
+                        if (picture) {
+                          picture.querySelectorAll('source').forEach((s) => s.remove());
+                        }
+                        target.src = '/assets/images/dr-jay-bhatt-healing-teal.jpeg';
+                      }}
                     />
                   </picture>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
@@ -116,13 +124,16 @@ export const Hero: React.FC = () => {
                   {/* Bottom Caption inside photo */}
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 text-white">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold bg-primary-600 text-white mb-1.5 shadow-xs">
-                      <Check className="w-3 h-3 text-white" /> Verified Medical Practitioner
+                      <BadgeCheck className="w-3.5 h-3.5 text-white" /> Reg. No. {CLINIC_INFO.registrationNumber} &bull; RMP
                     </span>
                     <h3 className="font-heading font-extrabold text-lg sm:text-xl text-white">
                       {CLINIC_INFO.doctor}
                     </h3>
                     <p className="text-[11px] sm:text-xs text-slate-200">
-                      {CLINIC_INFO.qualifications}
+                      {CLINIC_INFO.legalDoctorName} &bull; {CLINIC_INFO.qualifications}
+                    </p>
+                    <p className="text-[10px] text-slate-300">
+                      {CLINIC_INFO.council}
                     </p>
                   </div>
                 </div>
@@ -145,25 +156,21 @@ export const Hero: React.FC = () => {
                   </div>
                 </motion.div>
 
-                {/* Floating Badge 2: Happy Patients (Bottom-Right) with gentle Motion Float */}
+                {/* Floating Badge 2: Council Registration Verification (Bottom-Right) with gentle Motion Float */}
                 <motion.div
                   className="absolute -bottom-3 sm:-bottom-5 right-2 sm:right-6 bg-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl border border-slate-200 shadow-lg flex items-center gap-2 sm:gap-2.5 z-10"
                   animate={{ y: [3, -3, 3] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 >
-                  <div className="flex items-center gap-0.5 text-amber-500">
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
+                    <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600" />
                   </div>
-                  <div className="border-l border-slate-200 pl-2">
-                    <p className="text-xs font-bold text-slate-900">
-                      {CLINIC_INFO.stats.treatedPatients.toLocaleString()}+ Patients
+                  <div>
+                    <p className="text-xs font-bold text-slate-900 leading-tight">
+                      Reg. No. {CLINIC_INFO.registrationNumber}
                     </p>
-                    <p className="text-[10px] text-primary-600 font-semibold">
-                      {CLINIC_INFO.stats.reliefRate}% Satisfaction
+                    <p className="text-[10px] text-slate-500 font-medium">
+                      Gujarat Homoeopathic Council
                     </p>
                   </div>
                 </motion.div>

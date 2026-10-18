@@ -5,7 +5,14 @@ export const CLINIC_INFO = {
   tagline: "Homoeopathy & Clinical Skin Care",
   philosophy: "Gentle Healing, Lasting Relief",
   doctor: "Dr. Jay Bhatt",
-  qualifications: "BHMS • General Physician • Classical Homoeopathy",
+  legalDoctorName: "Dr. Bhatt Jaykumar Vihangbhai",
+  qualifications: "BHMS (VNSGU Surat)",
+  fullQualifications: "BHMS (Bachelor of Homoeopathic Medicine & Surgery)",
+  college: "Shri C. N. Kothari Homoeopathic Medical College & Research Centre, Vyara",
+  university: "Veer Narmad South Gujarat University, Surat",
+  registrationNumber: "G-22263",
+  council: "Gujarat State Homoeopathic Medical Council",
+  councilStatus: "Registered Medical Practitioner (RMP)",
   phone: "+91 76002 39816",
   phoneRaw: "917600239816",
   phoneTel: "tel:+917600239816",
@@ -14,13 +21,13 @@ export const CLINIC_INFO = {
   doctorPhoneFormatted: "+91 76002 39816",
   whatsappUrl: "https://wa.me/917600239816?text=Hello%20Shri%20Sai%20Clinic,%20I%20would%20like%20to%20inquire%20about%20a%20consultation.",
   email: "appointments.shrisaiclinic@gmail.com",
-  address: "Samrudhi Complex in front of Palace gate new Depo Road Vasada Gujarat",
+  address: "Samrudhi Complex, Opp. Palace Gate, New Depo Road, Vansda, Gujarat",
   mapsUrl: "https://share.google/myiPzk2hQAKWgQg6f",
   stats: {
     yearsExperience: 10,
     treatedPatients: 5000,
-    reliefRate: 98.4,
-    nonSteroidal: 100
+    clinicalDepartments: 7,
+    pharmacopoeia: "HPI Standard"
   },
   opdHours: [
     { label: "Mon – Sun (Morning Session)", time: "9:00 AM – 12:00 PM", highlight: true },
@@ -32,12 +39,12 @@ export const CLINICAL_CASES: ClinicalCase[] = [
   {
     id: "psoriasis",
     category: "Skin Care Remission",
-    title: "Scalp Psoriasis Remission",
+    title: "Scalp Psoriasis Relief",
     aspectRatio: "600 / 675",
     duration: "4 Months",
     method: "Constitutional",
-    recovery: "100% Clear",
-    description: "Severe chronic scaling and thick erythematous plaques across the forehead and entire scalp. Dr. Jay Bhatt's constitutional homeopathy stimulated immune self-regulation, resulting in complete scalp restoration without topical steroid creams or immunosuppressants.",
+    recovery: "Scalp Remission",
+    description: "Severe, long-lasting flaking and thick red patches across the forehead and scalp. Dr. Jay Bhatt used customized homeopathic treatment to help the body naturally balance its immune system. Complete healing of the scalp without using steroid creams or harsh medicines.",
     highlights: [
       "Zero topical cortisone or steroid rebound",
       "Complete scalp epidermal turnover normalized"
@@ -50,12 +57,12 @@ export const CLINICAL_CASES: ClinicalCase[] = [
   {
     id: "skintags",
     category: "Dermatological Care",
-    title: "Neck Skin Tags (Non-Surgical)",
+    title: "Neck Skin Tag Removal (Non-Surgical)",
     aspectRatio: "600 / 655",
     duration: "6 Weeks",
     method: "Oral Remedy",
     recovery: "Zero Scarring",
-    description: "Multiple widespread pedunculated skin tags and dermal papillomas across the posterior cervical neck. Cured completely through internal homeopathic medicines with zero cauterization, excision, bleeding, or scarring.",
+    description: "Multiple skin tags and small raised growths across the back of the neck were completely cleared using internal homeopathic medicines. This natural treatment restored smooth skin from within without any burning, cutting, bleeding, or scarring.",
     highlights: [
       "Zero surgical excision or electric cautery",
       "Smooth skin without post-procedure hyperpigmentation"
@@ -68,12 +75,12 @@ export const CLINICAL_CASES: ClinicalCase[] = [
   {
     id: "alopecia",
     category: "Hair & Trichology",
-    title: "Alopecia Areata (Patchy Hair Loss)",
+    title: "Patchy Hair Loss Treatment (Alopecia)",
     aspectRatio: "600 / 888",
     duration: "3 Months",
     method: "Follicular Revival",
     recovery: "Full Density",
-    description: "Pediatric case presenting with acute, smooth circular alopecic patches over the fronto-temporal hairline. Constitutional treatment revived dormant hair follicles, achieving full natural density and healthy hair regrowth.",
+    description: "Sudden smooth round bald spots near the hairline in a child were fully restored using personalized homeopathic medicine. The natural approach stimulated hair growth from within, restoring strong, dense, and healthy hair without harsh chemical treatments.",
     highlights: [
       "Natural follicular revival without steroid scalp injections",
       "Complete terminal hair regrowth with healthy thickness"
@@ -86,12 +93,12 @@ export const CLINICAL_CASES: ClinicalCase[] = [
   {
     id: "seborrhea",
     category: "Scalp Dermatology",
-    title: "Seborrheic Dermatitis Recovery",
+    title: "Severe Dandruff and Scalp Eczema",
     aspectRatio: "600 / 860",
     duration: "8 Weeks",
     method: "Internal Clearance",
     recovery: "Flake-Free",
-    description: "Stubborn flaking, greasy crusts, and persistent scalp erythema. Treated via constitutional cellular balance, completely clearing the epidermal inflammation and leaving a clean, healthy scalp.",
+    description: "Persistent oily flaking, crusts, and red, irritated skin on the scalp were completely cleared through customized homeopathic care. By soothing skin inflammation naturally from within, the treatment restored a clean and healthy scalp.",
     highlights: [
       "Long-term remission without medicated shampoo dependency",
       "Calmed itchy scalp inflammation and restored healthy barrier"
@@ -104,12 +111,12 @@ export const CLINICAL_CASES: ClinicalCase[] = [
   {
     id: "kidneystone",
     category: "Renal & Chronic Care",
-    title: "Kidney Stone Expulsion (Non-Surgical)",
+    title: "Natural Kidney Stone Treatment",
     aspectRatio: "542 / 487",
     duration: "3 Weeks",
     method: "Constitutional",
     recovery: "Stone Expelled",
-    description: "Symptomatic renal calculus (kidney stone) with acute colic. Targeted constitutional homeopathy facilitated natural smooth muscle relaxation and calculus passage, resulting in painless natural stone expulsion without surgical lithotripsy or stent intervention.",
+    description: "Severe lower back and side pain caused by a kidney stone was successfully resolved through targeted homeopathic medicine. The natural treatment relaxed the urinary tract, allowing the stone to pass completely on its own without needing surgery, laser breakdown, or stent placement.",
     highlights: [
       "Painless natural stone expulsion without lithotripsy or surgery",
       "Resolved acute renal colic & prevents recurrent stone formation"
@@ -123,32 +130,35 @@ export const CLINICAL_CASES: ClinicalCase[] = [
 
 export const SERVICES: ServiceItem[] = [
   {
-    id: "acne",
-    category: "skin",
-    iconName: "FaceGlow",
-    title: "Acne, Pimples & Scars",
-    departmentBadge: "Skin Care",
-    description: "Targeted homoeopathy corrects internal androgen surges, sebum overproduction, and bacterial colonization. Eradicates recurrent cysts, blackheads, and post-acne pigmentation safely.",
-    bulletPoints: [
-      "No harsh oral retinoids or peel burns",
-      "Prevents permanent crater scarring",
-      "Rebalances natural skin moisture barrier"
-    ],
-    bookingSubject: "Acne & Pimples Treatment"
-  },
-  {
     id: "psoriasis",
     category: "skin",
     iconName: "ShieldAlert",
     title: "Psoriasis & Eczema",
     departmentBadge: "Chronic Care",
-    description: "Deep-acting constitutional homoeopathy harmonizes the immune response to halt excessive epidermal cell proliferation, intense flaking, weeping cracks, and unbearable itching.",
+    description: "Soothes persistent red patches, intense itching, and stubborn flaking naturally from within with non-steroidal constitutional care.",
     bulletPoints: [
-      "Zero topical steroid rebound flare-ups",
-      "Controls scalp, plaque & inverse psoriasis",
-      "Long-term remission & skin healing"
+      "Zero cortisone or steroid rebound flare-ups",
+      "Scalp, plaque, inverse & guttate care",
+      "Restores natural skin barrier & healing"
     ],
-    bookingSubject: "Psoriasis & Eczema Treatment"
+    bookingSubject: "Psoriasis & Eczema Treatment",
+    slides: [
+      {
+        image: "/assets/cases/psoriasis-plaque-lesions.webp",
+        alt: "Clinical presentation of round psoriasis plaque lesions on skin",
+        captionBadge: "Plaque & Guttate Psoriasis"
+      },
+      {
+        image: "/assets/cases/eczema-hands-scaling.jpg",
+        alt: "Severe eczema with dry cracked skin and scaling on hands",
+        captionBadge: "Severe Hand Eczema & Scaling"
+      },
+      {
+        image: "/assets/cases/psoriasis-back-itching.jpg",
+        alt: "Patient scratching itchy red psoriasis patches on back",
+        captionBadge: "Active Flare-ups & Itching"
+      }
+    ]
   },
   {
     id: "melasma",
@@ -162,7 +172,19 @@ export const SERVICES: ServiceItem[] = [
       "Regulates overactive melanocytes naturally",
       "Restores natural skin radiance"
     ],
-    bookingSubject: "Melasma & Pigmentation"
+    bookingSubject: "Melasma & Pigmentation",
+    slides: [
+      {
+        image: "/assets/cases/melasma-facial-portrait-v2.png",
+        alt: "Clinical portrait of patient with symmetrical facial melasma, cheek pigmentation, and chloasma",
+        captionBadge: "Facial Melasma & Chloasma"
+      },
+      {
+        image: "/assets/cases/melasma-cheek-hyperpigmentation.png",
+        alt: "Clinical presentation of dense epidermal cheek hyperpigmentation and sun-induced melasma patches",
+        captionBadge: "Cheek Hyperpigmentation"
+      }
+    ]
   },
   {
     id: "hairloss",
@@ -170,13 +192,30 @@ export const SERVICES: ServiceItem[] = [
     iconName: "Feather",
     title: "Hair Loss & Alopecia",
     departmentBadge: "Trichology",
-    description: "Comprehensive treatment for diffuse hair thinning, patchy Alopecia Areata, telogen effluvium, and androgenetic baldness through follicular stimulation and cellular nourishment.",
+    description: "Stimulates dormant follicles, halts chronic thinning, and restores natural hair density without steroid injections.",
     bulletPoints: [
-      "Strengthens hair roots & reactivates papillae",
-      "Corrects underlying thyroid/stress triggers",
-      "Eradicates stubborn seborrheic dandruff"
+      "Natural follicular revival without steroid injections",
+      "Treats patchy alopecia, receding & diffuse thinning",
+      "Corrects underlying hormonal & nutritional triggers"
     ],
-    bookingSubject: "Hair Loss & Alopecia Treatment"
+    bookingSubject: "Hair Loss & Alopecia Treatment",
+    slides: [
+      {
+        image: "/assets/cases/male-androgenetic-alopecia.jpg",
+        alt: "Male androgenetic alopecia with receding hairline and crown thinning",
+        captionBadge: "Male Pattern Thinning"
+      },
+      {
+        image: "/assets/cases/patchy-alopecia-areata-scalp.png",
+        alt: "Clinical presentation of patchy alopecia areata circular bald spots on scalp",
+        captionBadge: "Patchy Alopecia Areata"
+      },
+      {
+        image: "/assets/cases/female-diffuse-hair-thinning.png",
+        alt: "Young woman checking diffuse hair thinning along parting and crown line",
+        captionBadge: "Female Pattern Thinning"
+      }
+    ]
   },
   {
     id: "allergies",
@@ -190,7 +229,19 @@ export const SERVICES: ServiceItem[] = [
       "Strengthens airway mucosal immunity",
       "Non-sedating, zero lethargy or drowsiness"
     ],
-    bookingSubject: "Allergies & Asthma Treatment"
+    bookingSubject: "Allergies & Asthma Treatment",
+    slides: [
+      {
+        image: "/assets/cases/allergic-rhinitis-sneezing-relief.png",
+        alt: "Man sneezing into a tissue due to allergic rhinitis, morning allergy bursts, and sinus congestion",
+        captionBadge: "Allergic Rhinitis & Sinus"
+      },
+      {
+        image: "/assets/cases/asthma-inhaler-breathing-relief.png",
+        alt: "Patient managing asthma attack with inhaler and breathing difficulty with healthcare support",
+        captionBadge: "Asthma & Wheezing Relief"
+      }
+    ]
   },
   {
     id: "pcod",
@@ -204,7 +255,24 @@ export const SERVICES: ServiceItem[] = [
       "Zero synthetic birth control hormones",
       "Weight balance & mood stabilization"
     ],
-    bookingSubject: "PCOD / Hormonal Consultation"
+    bookingSubject: "PCOD / Hormonal Consultation",
+    slides: [
+      {
+        image: "/assets/cases/pcod-ovarian-cysts-anatomy.png",
+        alt: "Medical anatomical illustration of polycystic ovaries with follicular cysts in PCOD",
+        captionBadge: "PCOD Ovarian Disease"
+      },
+      {
+        image: "/assets/cases/pcod-abdominal-pelvic-pain.png",
+        alt: "Young woman suffering from lower right abdominal and pelvic pain due to PCOD",
+        captionBadge: "Pelvic Pain & Cramps"
+      },
+      {
+        image: "/assets/cases/pcos-polycystic-ovary-anatomy.png",
+        alt: "Medical anatomical illustration of PCOS polycystic ovary syndrome pathology",
+        captionBadge: "PCOS Ovary Syndrome"
+      }
+    ]
   },
   {
     id: "gastric",
@@ -218,7 +286,19 @@ export const SERVICES: ServiceItem[] = [
       "Non-surgical management of piles/fissures",
       "Relieves stress-induced digestive spasms"
     ],
-    bookingSubject: "Gastrointestinal Consultation"
+    bookingSubject: "Gastrointestinal Consultation",
+    slides: [
+      {
+        image: "/assets/cases/gerd-acid-reflux-throat-burning.jpg",
+        alt: "Patient suffering from throat burning, acid regurgitation, and esophageal reflux",
+        captionBadge: "Acid Reflux & Regurgitation"
+      },
+      {
+        image: "/assets/cases/stomach-acidity-heartburn-burning.webp",
+        alt: "Illustration of stomach acidity, heartburn, and burning sensation in upper digestive tract",
+        captionBadge: "Acidity & Heartburn"
+      }
+    ]
   },
   {
     id: "pediatrics",
@@ -228,11 +308,28 @@ export const SERVICES: ServiceItem[] = [
     departmentBadge: "Pediatrics",
     description: "Sweet, pleasant sugar-pill homoeopathic remedies loved by children. Treats recurrent coughs, colds, tonsillitis, adenoids, poor appetite, dentition issues, and bedwetting.",
     bulletPoints: [
-      "100% tasty, non-bitter, easy to administer",
+      "Pleasant-tasting, non-bitter, easy to administer",
       "Avoids repeated cycles of heavy antibiotics",
       "Builds resilient natural defense systems"
     ],
-    bookingSubject: "Pediatric Child Consultation"
+    bookingSubject: "Pediatric Child Consultation",
+    slides: [
+      {
+        image: "/assets/cases/child-health-gentle-pediatric-visit.png",
+        alt: "Young toddler during a comfortable, gentle pediatric checkup visit",
+        captionBadge: "Gentle Pediatric Care"
+      },
+      {
+        image: "/assets/cases/child-fever-cough-cold-thermometer.jpg",
+        alt: "Caring mother tending to sick child with fever thermometer in bed",
+        captionBadge: "Recurrent Fever & Colds"
+      },
+      {
+        image: "/assets/cases/child-immunity-defense-mask.jpg",
+        alt: "Young child with face mask for recurrent infections and low seasonal immunity",
+        captionBadge: "Immunity & Frequent Infections"
+      }
+    ]
   }
 ];
 
@@ -299,6 +396,6 @@ export const FAQS: FAQItem[] = [
   {
     id: 5,
     question: "Why does Dr. Jay Bhatt spend 30–45 minutes in first consultation?",
-    answer: "Classical homoeopathy treats the patient as a whole individual, not just an isolated disease label. Dr. Jay analyzes your emotional constitution, thermal sensitivity, sleep patterns, metabolic tendencies, and root disease origins to select the single, most precise remedy that permanently cures your condition."
+    answer: "Classical homoeopathy treats the patient as a whole individual, not just an isolated disease label. Dr. Jay analyzes your emotional constitution, thermal sensitivity, sleep patterns, metabolic tendencies, and root disease origins to select the single, individualised constitutional remedy to stimulate your body's self-healing response and restore long-term balance."
   }
 ];

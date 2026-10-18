@@ -57,9 +57,9 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       `• *Symptoms / Notes:* ${ticket.patientNotes ? ticket.patientNotes : 'None provided'}\n\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
       `📍 *Clinic:* Samrudhi Complex, Opp. Palace Gate, Vansda, Gujarat\n` +
-      `👨‍⚕️ *Doctor:* Dr. Jay Bhatt (BHMS)\n` +
+      `👨‍⚕️ *Doctor:* Dr. Jay Bhatt (Dr. Bhatt Jaykumar V., BHMS • Reg. No. G-22263)\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `_Submitted via Shri Sai Clinic Online Portal_`
+      `_Submitted via Shri Sai Clinic Online Portal • Not for emergency triage_`
     );
     return `https://wa.me/917600239816?text=${text}`;
   };

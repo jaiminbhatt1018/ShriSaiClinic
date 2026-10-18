@@ -104,7 +104,7 @@ const BeforeAfterSliderBase: React.FC = () => {
               <img
                 key={`after-img-${activeCase.id}`}
                 src={activeCase.afterImg}
-                alt={`Clinical Recovery After Treatment - ${activeCase.title} by Dr. Jay Bhatt at Shri Sai Clinic, Vasada`}
+                alt={`Clinical Recovery After Treatment - ${activeCase.title} by Dr. Jay Bhatt at Shri Sai Clinic`}
                 width={600}
                 height={675}
                 loading="lazy"
@@ -119,7 +119,7 @@ const BeforeAfterSliderBase: React.FC = () => {
               <img
                 key={`before-img-${activeCase.id}`}
                 src={activeCase.beforeImg}
-                alt={`Clinical Presentation Before Treatment - ${activeCase.title} - Shri Sai Clinic, Vasada, Gujarat`}
+                alt={`Clinical Presentation Before Treatment - ${activeCase.title} - Shri Sai Clinic`}
                 width={600}
                 height={675}
                 loading="lazy"
@@ -201,13 +201,10 @@ const BeforeAfterSliderBase: React.FC = () => {
         {/* Right Column: Case Clinical Details (5 cols) */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
           <div>
-            {/* Top Row: Category & Case Index */}
+            {/* Top Row: Category */}
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <span className="text-xs font-bold uppercase tracking-wider text-primary-700">
                 {activeCase.category}
-              </span>
-              <span className="font-mono text-xs font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
-                Case {(currentCaseIndex + 1).toString().padStart(2, '0')} of {CLINICAL_CASES.length.toString().padStart(2, '0')}
               </span>
             </div>
 
@@ -216,7 +213,7 @@ const BeforeAfterSliderBase: React.FC = () => {
               {activeCase.title}
             </h3>
 
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1.5 sm:mt-2">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-1.5 sm:mt-2 whitespace-pre-line">
               {activeCase.description}
             </p>
 
@@ -261,8 +258,8 @@ const BeforeAfterSliderBase: React.FC = () => {
             </div>
           </div>
 
-          {/* CTA & Disclaimer */}
-          <div className="pt-3 border-t border-slate-100 space-y-2.5">
+          {/* CTA Button */}
+          <div className="pt-3 border-t border-slate-100">
             <button
               onClick={() => openBooking(activeCase.bookingSubject)}
               className="w-full py-3 rounded-xl btn-primary text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-xs cursor-pointer"
@@ -270,10 +267,6 @@ const BeforeAfterSliderBase: React.FC = () => {
               <CalendarCheck className="w-4 h-4 text-white" />
               <span>Consult for This Condition</span>
             </button>
-
-            <p className="text-[11px] text-slate-400 italic text-center leading-snug">
-              {activeCase.disclaimer}
-            </p>
           </div>
 
         </div>
@@ -287,7 +280,7 @@ export const BeforeAfterSlider = withSectionWrapper(BeforeAfterSliderBase, {
   id: 'clinical-results',
   background: 'slate-50',
   badge: 'Clinical Case Studies',
-  title: 'Verified Homeopathic Recovery • Before & After Results in Vasada',
-  subtitle: 'Inspect authentic clinical recovery achieved through 100% steroid-free constitutional homeopathy led by Dr. Jay Bhatt in Vasada (Vansda), Gujarat.'
+  title: 'Proven Homeopathic Recovery',
+  subtitle: 'Real patient results and long-term healing journeys led by Dr. Jay Bhatt.'
 });
 

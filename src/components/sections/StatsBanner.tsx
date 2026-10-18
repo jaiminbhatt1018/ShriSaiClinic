@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { CLINIC_INFO } from '../../data/clinicData';
-import { Clock, Users, Activity, ShieldCheck } from 'lucide-react';
+import { Clock, Users, Layers, ShieldCheck } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 
 function useCounter(target: number, isVisible: boolean, duration: number = 1400) {
@@ -32,8 +32,7 @@ export const StatsBanner: React.FC = () => {
 
   const years = useCounter(CLINIC_INFO.stats.yearsExperience, isInView);
   const patients = useCounter(CLINIC_INFO.stats.treatedPatients, isInView);
-  const relief = useCounter(CLINIC_INFO.stats.reliefRate, isInView);
-  const nonSteroid = useCounter(CLINIC_INFO.stats.nonSteroidal, isInView);
+  const departments = useCounter(CLINIC_INFO.stats.clinicalDepartments, isInView);
 
   return (
     <section id="stats-section" ref={ref} className="border-b border-slate-200 bg-white py-8 sm:py-10 shadow-xs relative">
@@ -78,7 +77,7 @@ export const StatsBanner: React.FC = () => {
             <p className="text-[10px] sm:text-[11px] text-slate-400">Skin, Hair &amp; Chronic Ailments</p>
           </motion.div>
 
-          {/* Stat 3: Relief Rate */}
+          {/* Stat 3: Clinical Departments */}
           <motion.div
             className="space-y-1.5 pt-2 sm:pt-4 lg:pt-0"
             initial={{ opacity: 0, y: 12 }}
@@ -86,18 +85,18 @@ export const StatsBanner: React.FC = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
           >
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-2 border border-primary-100">
-              <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
-              <span>{relief.toFixed(1)}</span>%
+              <span>{Math.round(departments)}</span>
             </p>
             <p className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">
-              Natural Relief Rate
+              Specialized Departments
             </p>
-            <p className="text-[10px] sm:text-[11px] text-slate-400">Sustained Patient Remission</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400">Skin, Hair, Respiratory &amp; Chronic Care</p>
           </motion.div>
 
-          {/* Stat 4: Non-Steroidal */}
+          {/* Stat 4: HPI Standards */}
           <motion.div
             className="space-y-1.5 pt-2 sm:pt-4 lg:pt-0"
             initial={{ opacity: 0, y: 12 }}
@@ -108,12 +107,12 @@ export const StatsBanner: React.FC = () => {
               <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900">
-              <span>{Math.round(nonSteroid)}</span>%
+              HPI
             </p>
             <p className="text-xs sm:text-sm font-bold text-slate-600 uppercase tracking-wider">
-              Non-Steroidal Care
+              Pharmacopoeia Standard
             </p>
-            <p className="text-[10px] sm:text-[11px] text-slate-400">Zero Chemical Suppression</p>
+            <p className="text-[10px] sm:text-[11px] text-slate-400">Non-Steroidal Micro-Dose Remedies</p>
           </motion.div>
 
         </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAppointment } from '../../context/AppointmentContext';
 import { CLINIC_INFO } from '../../data/clinicData';
+import { ThemeSeedSelector } from '../common/ThemeSeedSelector';
 import { Menu, X, CalendarCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -37,7 +38,7 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { href: '#clinical-results', label: 'Clinical Results', id: 'clinical-results' },
     { href: '#services', label: 'Treatments', id: 'services' },
-    { href: '#testimonials', label: 'Reviews', id: 'testimonials' },
+    // { href: '#testimonials', label: 'Reviews', id: 'testimonials' },
     { href: '#faqs', label: 'FAQs', id: 'faqs' }
   ];
 
@@ -53,7 +54,7 @@ export const Navbar: React.FC = () => {
                 <source srcSet="/assets/images/logo.webp" type="image/webp" />
                 <img
                   src="/assets/images/logo.png"
-                  alt="Shri Sai Clinic - 100% Steroid-Free Skin &amp; Hair Care by Dr. Jay Bhatt"
+                  alt="Shri Sai Clinic - Classical Homoeopathic Care by Dr. Jay Bhatt (BHMS)"
                   width={48}
                   height={48}
                   className="w-full h-full object-contain filter drop-shadow-xs"
@@ -95,6 +96,9 @@ export const Navbar: React.FC = () => {
 
           {/* Header Action CTAs */}
           <div className="hidden sm:flex items-center gap-3">
+            {/* Dynamic Seed Color Customizer */}
+            <ThemeSeedSelector />
+
             {/* Official WhatsApp Chat Button (Preserved for future phase) */}
             <a
               href={CLINIC_INFO.whatsappUrl}
@@ -121,6 +125,7 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Menu Toggle Button */}
           <div className="flex items-center gap-2 lg:hidden">
+            <ThemeSeedSelector />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:text-primary-700 hover:bg-primary-50 transition cursor-pointer"

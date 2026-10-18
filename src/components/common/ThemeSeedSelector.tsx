@@ -43,8 +43,8 @@ export const ThemeSeedSelector: React.FC = () => {
                 </span>
                 <button
                   onClick={resetDefault}
-                  className="text-[11px] text-slate-500 hover:text-primary-600 flex items-center gap-1 transition"
-                  title="Reset to default Clinical Sky"
+                  className="text-[11px] text-slate-500 hover:text-primary-600 flex items-center gap-1 transition cursor-pointer"
+                  title="Reset to default Botanical Green"
                 >
                   <RotateCcw className="w-3 h-3" />
                   <span>Reset</span>
@@ -105,7 +105,7 @@ export const ThemeSeedSelector: React.FC = () => {
                         setSeedColor(val);
                       }
                     }}
-                    placeholder="#0284C7"
+                    placeholder="#146D46"
                     className="flex-grow px-2.5 py-1.5 font-mono text-xs rounded-xl border border-slate-200 focus:border-primary-500 focus:ring-1 focus:ring-primary-200 outline-none uppercase"
                   />
                 </div>

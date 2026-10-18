@@ -12,14 +12,13 @@ export function generateMedicalClinicSchema() {
     alternateName: [
       'Shri Sai Homoeopathic Clinic',
       'Shree Sai Clinic',
-      'Shri Sai Clinic Vasada',
       'Shri Sai Clinic Vansda'
     ],
     url: 'https://shrisaiclinic.com',
     logo: 'https://shrisaiclinic.com/assets/images/logo.png',
     image: 'https://shrisaiclinic.com/assets/images/dr-jay-bhatt-healing-teal.jpeg',
     description:
-      'Specialized classical homeopathic clinic providing 100% steroid-free skin and hair care treatments led by Dr. Jay Bhatt (BHMS) in Vasada (Vansda), Gujarat, India.',
+      'Specialized classical homeopathic clinic providing non-steroidal constitutional treatments led by Dr. Jay Bhatt (BHMS) in Vansda, Gujarat, India.',
     telephone: CLINIC_INFO.phone,
     email: CLINIC_INFO.email,
     priceRange: '₹₹',
@@ -32,7 +31,7 @@ export function generateMedicalClinicSchema() {
     availableService: [
       {
         '@type': 'MedicalTherapy',
-        name: '100% Steroid-Free Chronic Scalp Psoriasis & Eczema Remission',
+        name: 'Chronic Scalp Psoriasis & Eczema Constitutional Remission',
         description:
           'Constitutional homeopathic treatment for severe chronic scaling, plaque psoriasis, and eczema without cortisone or steroid rebound.'
       },
@@ -64,7 +63,7 @@ export function generateMedicalClinicSchema() {
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Samrudhi Complex, in front of Palace Gate, New Depo Road',
-      addressLocality: 'Vasada',
+      addressLocality: 'Vansda',
       addressRegion: 'Gujarat',
       postalCode: '396050',
       addressCountry: 'IN'
@@ -125,9 +124,23 @@ export function generatePhysicianSchema() {
     '@type': 'Physician',
     '@id': 'https://shrisaiclinic.com/#physician',
     name: CLINIC_INFO.doctor,
+    alternateName: CLINIC_INFO.legalDoctorName,
+    identifier: CLINIC_INFO.registrationNumber,
     honorificPrefix: 'Dr.',
     jobTitle: 'General Physician & Classical Homoeopath',
-    credential: 'BHMS (Bachelor of Homeopathic Medicine and Surgery)',
+    credential: 'BHMS (Bachelor of Homoeopathic Medicine and Surgery)',
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: CLINIC_INFO.college,
+      parentOrganization: {
+        '@type': 'CollegeOrUniversity',
+        name: CLINIC_INFO.university
+      }
+    },
+    memberOf: {
+      '@type': 'MedicalOrganization',
+      name: CLINIC_INFO.council
+    },
     medicalSpecialty: [
       'https://schema.org/Homeopathic',
       'https://schema.org/Dermatology'
@@ -141,7 +154,7 @@ export function generatePhysicianSchema() {
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Samrudhi Complex, in front of Palace Gate, New Depo Road',
-      addressLocality: 'Vasada',
+      addressLocality: 'Vansda',
       addressRegion: 'Gujarat',
       postalCode: '396050',
       addressCountry: 'IN'
@@ -149,8 +162,7 @@ export function generatePhysicianSchema() {
     telephone: CLINIC_INFO.phone,
     url: 'https://shrisaiclinic.com',
     image: 'https://shrisaiclinic.com/assets/images/dr-jay-bhatt-healing-teal.jpeg',
-    description:
-      'Dr. Jay Bhatt (BHMS) is a General Physician and experienced Homeopath in Vasada, Gujarat, specializing in 100% steroid-free treatments for stubborn skin ailments, chronic hair fall, and deep pathology with over 10 years of clinical practice.'
+    description: `${CLINIC_INFO.doctor} (${CLINIC_INFO.legalDoctorName}, BHMS) is a Registered Medical Practitioner (Reg. No. ${CLINIC_INFO.registrationNumber}) with ${CLINIC_INFO.council}, specializing in constitutional homeopathic care with over ${CLINIC_INFO.stats.yearsExperience} years of clinical practice in Vansda, Gujarat.`
   };
 }
 

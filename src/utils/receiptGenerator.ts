@@ -64,16 +64,16 @@ export async function generateReceiptCanvas(ticket: AppointmentData): Promise<HT
   ctx.fillStyle = '#ffffff';
   ctx.fill();
   ctx.lineWidth = 2;
-  ctx.strokeStyle = '#0d9488';
+  ctx.strokeStyle = '#039487';
   ctx.stroke();
 
-  // 3. Header Banner with Healing Teal Gradient (#0D9488 -> #0F766E)
+  // 3. Header Banner with Healing Teal Gradient (#039487 -> #0F766E)
   ctx.save();
   roundRect(ctx, 12, 12, width - 24, 120, 20);
   ctx.clip();
 
   const headerGradient = ctx.createLinearGradient(12, 12, width - 12, 132);
-  headerGradient.addColorStop(0, '#0d9488');
+  headerGradient.addColorStop(0, '#039487');
   headerGradient.addColorStop(1, '#0f766e');
   ctx.fillStyle = headerGradient;
   ctx.fillRect(12, 12, width - 24, 120);
@@ -103,7 +103,7 @@ export async function generateReceiptCanvas(ticket: AppointmentData): Promise<HT
     ctx.drawImage(logoImg, logoBoxX + 8, logoBoxY + 8, logoBoxSize - 16, logoBoxSize - 16);
   } else {
     // Fallback medical cross badge
-    ctx.fillStyle = '#0d9488';
+    ctx.fillStyle = '#039487';
     ctx.font = 'bold 28px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('+', logoBoxX + logoBoxSize / 2, logoBoxY + logoBoxSize / 2 + 10);
@@ -137,7 +137,7 @@ export async function generateReceiptCanvas(ticket: AppointmentData): Promise<HT
   ctx.font = 'bold 11px "Plus Jakarta Sans", system-ui, sans-serif';
   ctx.fillText('OFFICIAL CONSULTATION TOKEN', width / 2, tokenBoxY + 22);
 
-  ctx.fillStyle = '#0d9488';
+  ctx.fillStyle = '#039487';
   ctx.font = '800 32px "Plus Jakarta Sans", system-ui, sans-serif';
   ctx.fillText(`#${ticket.tokenId}`, width / 2, tokenBoxY + 58);
 
@@ -205,7 +205,7 @@ export async function generateReceiptCanvas(ticket: AppointmentData): Promise<HT
   ctx.font = '500 9.5px "Plus Jakarta Sans", system-ui, sans-serif';
   ctx.fillText('Please show this digital receipt at reception or quote the token on WhatsApp.', width / 2, 506);
 
-  ctx.fillStyle = '#0d9488';
+  ctx.fillStyle = '#039487';
   ctx.font = 'bold 10px "Plus Jakarta Sans", system-ui, sans-serif';
   ctx.fillText('Shri Sai Clinic • Gentle Care & Homeopathic Healing', width / 2, 528);
 
