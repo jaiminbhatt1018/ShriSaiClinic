@@ -96,27 +96,45 @@ const AppointmentSectionBase: React.FC = () => {
         {/* Contact & Location Card */}
         <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs space-y-4">
           
-          <div className="flex items-start gap-4">
-            <div className="p-2.5 rounded-xl bg-primary-100 text-primary-700 shrink-0">
-              <MapPin className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm">Visit Our Clinic</h4>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
-                {CLINIC_INFO.name}, {CLINIC_INFO.address}
-              </p>
-              <div className="mt-2.5">
-                <a
-                  href={CLINIC_INFO.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-100 text-primary-800 hover:bg-primary-200 border border-primary-200 text-xs font-semibold transition"
-                >
-                  <Navigation className="w-3.5 h-3.5 text-primary-600" />
-                  <span>Open in Google Maps</span>
-                  <ExternalLink className="w-3 h-3 ml-0.5" />
-                </a>
+          <div className="space-y-3">
+            <div className="flex items-start gap-4">
+              <div className="p-2.5 rounded-xl bg-primary-100 text-primary-700 shrink-0">
+                <MapPin className="w-5 h-5" />
               </div>
+              <div className="flex-1">
+                <h4 className="font-bold text-slate-900 text-sm">Visit Our Clinic</h4>
+                <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                  {CLINIC_INFO.name}, {CLINIC_INFO.address}
+                </p>
+              </div>
+            </div>
+
+            {/* Interactive Google Maps Iframe */}
+            <div className="relative w-full h-48 sm:h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
+              <iframe
+                title="Shri Sai Clinic Location Map"
+                src={CLINIC_INFO.mapsEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
+
+            <div className="pt-0.5">
+              <a
+                href={CLINIC_INFO.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-100 text-primary-800 hover:bg-primary-200 border border-primary-200 text-xs font-semibold transition"
+              >
+                <Navigation className="w-3.5 h-3.5 text-primary-600" />
+                <span>Open in Google Maps</span>
+                <ExternalLink className="w-3 h-3 ml-0.5" />
+              </a>
             </div>
           </div>
 

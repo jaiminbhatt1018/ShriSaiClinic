@@ -23,6 +23,7 @@ export const CLINIC_INFO = {
   email: "appointments.shrisaiclinic@gmail.com",
   address: "Samrudhi Complex, Opp. Palace Gate, New Depo Road, Vansda, Gujarat",
   mapsUrl: "https://share.google/myiPzk2hQAKWgQg6f",
+  mapsEmbedUrl: "https://maps.google.com/maps?q=Shri+Sai+Clinic,+Samrudhi+Complex,+Opp.+Palace+Gate,+Vansda,+Gujarat&t=&z=16&ie=UTF8&iwloc=&output=embed",
   stats: {
     yearsExperience: 10,
     treatedPatients: 5000,
