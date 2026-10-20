@@ -17,7 +17,7 @@ interface ThemeContextType {
   resetDefault: () => void;
 }
 
-const DEFAULT_SEED = '#146D46';
+const DEFAULT_SEED = '#039487';
 const STORAGE_KEY = 'shri_sai_clinic_theme_seed';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -26,11 +26,11 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [seedColor, setSeedColorState] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem(STORAGE_KEY);
-      // Migrate away from old blue (#0284C7) or teal (#039487) to Botanical Green (#146D46)
+      // Migrate away from old blue (#0284C7) or botanical green (#146D46) to Healing Teal (#039487)
       if (
         stored &&
         stored.toLowerCase() !== '#0284c7' &&
-        stored.toLowerCase() !== '#039487' &&
+        stored.toLowerCase() !== '#146d46' &&
         /^#[0-9A-Fa-f]{6}$/.test(stored)
       ) {
         return stored;

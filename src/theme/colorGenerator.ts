@@ -32,16 +32,16 @@ export interface ThemePreset {
 
 export const THEME_PRESETS: ThemePreset[] = [
   {
-    id: 'botanical-green',
-    name: 'Botanical Green (Default)',
-    seed: '#146D46',
-    description: 'Specialized clinical botanical green'
-  },
-  {
     id: 'healing-teal',
-    name: 'Healing Teal',
+    name: 'Healing Teal (Default)',
     seed: '#039487',
     description: 'Calming, holistic botanical homoeopathic tone'
+  },
+  {
+    id: 'botanical-green',
+    name: 'Botanical Green',
+    seed: '#146D46',
+    description: 'Specialized clinical botanical green'
   },
   {
     id: 'clinical-sky',
