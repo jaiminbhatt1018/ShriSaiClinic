@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
             {/* Top Verified Location Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 text-primary-800 border border-primary-200 text-xs font-bold tracking-wide uppercase">
               <span className="w-2 h-2 rounded-full bg-primary-600 animate-pulse" />
-              <span>Registered Medical Practitioner (RMP) &bull; Vansda</span>
+              <span>Shri Sai Clinic (Shree Sai Clinic) &bull; Dr. Jay Bhatt &bull; Vansda</span>
             </div>
 
             {/* Main Headline */}

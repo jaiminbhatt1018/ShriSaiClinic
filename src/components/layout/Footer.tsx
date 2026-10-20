@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Dr. Jay Bhatt ({CLINIC_INFO.legalDoctorName}, BHMS) provides pure classical constitutional homeopathy and clinical dermatological therapies for deep-rooted chronic pathology and long-term constitutional health.
+              Dr. Jay Bhatt ({CLINIC_INFO.legalDoctorName}, BHMS) provides pure classical constitutional homeopathy and clinical dermatological therapies for deep-rooted chronic pathology and long-term constitutional health at Shri Sai Clinic (Shree Sai Clinic) in Vansda, Gujarat.
             </p>
 
             <div className="pt-1 flex items-center gap-2 text-xs text-emerald-400 font-semibold">
