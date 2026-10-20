@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                   <source srcSet="/assets/images/logo.webp" type="image/webp" />
                   <img
                     src="/assets/images/logo.png"
-                    alt="Shri Sai Clinic Logo"
+                    alt="Shree Sai Clinic Logo"
                     width={40}
                     height={40}
                     loading="lazy"
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Dr. Jay Bhatt ({CLINIC_INFO.legalDoctorName}, BHMS) provides pure classical constitutional homeopathy and clinical dermatological therapies for deep-rooted chronic pathology and long-term constitutional health at Shri Sai Clinic (Shree Sai Clinic) in Vansda, Gujarat.
+              Dr. Jaykumar Bhatt (BHMS) provides pure classical constitutional homeopathy and clinical dermatological therapies for deep-rooted chronic pathology and long-term constitutional health at Shree Sai Clinic in Vansda, Gujarat.
             </p>
 
             <div className="pt-1 flex items-center gap-2 text-xs text-emerald-400 font-semibold">
@@ -106,14 +106,14 @@ export const Footer: React.FC = () => {
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-primary-400 shrink-0" />
-                <a href={CLINIC_INFO.phoneTel} className="hover:text-white font-semibold transition" aria-label="Call Shri Sai Clinic">
+                <a href={CLINIC_INFO.phoneTel} className="hover:text-white font-semibold transition" aria-label="Call Shree Sai Clinic">
                   {CLINIC_INFO.phone}
                 </a>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-primary-400 shrink-0" />
-                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-white transition" aria-label="Email Shri Sai Clinic">
+                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-white transition" aria-label="Email Shree Sai Clinic">
                   {CLINIC_INFO.email}
                 </a>
               </div>
@@ -125,7 +125,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-primary-300 text-xs font-semibold border border-slate-700 transition"
-                aria-label="Find Shri Sai Clinic on Google Maps"
+                aria-label="Find Shree Sai Clinic on Google Maps"
               >
                 <span>Open in Google Maps</span>
                 <ExternalLink className="w-3 h-3 ml-0.5" />

@@ -42,7 +42,7 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
   const getWhatsAppShareUrl = (ticket: AppointmentData): string => {
     const text = encodeURIComponent(
-      `🏥 *SHRI SAI CLINIC — APPOINTMENT BOOKING*\n` +
+      `🏥 *SHREE SAI CLINIC — APPOINTMENT BOOKING*\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
       `📋 *Token ID:* ${ticket.tokenId}\n` +
       `📅 *Booking Time:* ${ticket.createdAt}\n\n` +
@@ -57,9 +57,9 @@ export const AppointmentProvider: React.FC<{ children: React.ReactNode }> = ({ c
       `• *Symptoms / Notes:* ${ticket.patientNotes ? ticket.patientNotes : 'None provided'}\n\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
       `📍 *Clinic:* Samrudhi Complex, Opp. Palace Gate, Vansda, Gujarat\n` +
-      `👨‍⚕️ *Doctor:* Dr. Jay Bhatt (Dr. Bhatt Jaykumar V., BHMS • Reg. No. G-22263)\n` +
+      `👨‍⚕️ *Doctor:* Dr. Jaykumar Bhatt (BHMS • Reg. No. G-22263)\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-      `_Submitted via Shri Sai Clinic Online Portal • Not for emergency triage_`
+      `_Submitted via Shree Sai Clinic Online Portal • Not for emergency triage_`
     );
     return `https://wa.me/917600239816?text=${text}`;
   };

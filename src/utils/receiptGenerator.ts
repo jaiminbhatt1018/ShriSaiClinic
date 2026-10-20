@@ -207,7 +207,7 @@ export async function generateReceiptCanvas(ticket: AppointmentData): Promise<HT
 
   ctx.fillStyle = '#039487';
   ctx.font = 'bold 10px "Plus Jakarta Sans", system-ui, sans-serif';
-  ctx.fillText('Shri Sai Clinic • Gentle Care & Homeopathic Healing', width / 2, 528);
+  ctx.fillText('Shree Sai Clinic • Gentle Care & Homeopathic Healing', width / 2, 528);
 
   return canvas;
 }
@@ -235,7 +235,7 @@ export async function downloadReceiptImage(ticket: AppointmentData): Promise<voi
   const a = document.createElement('a');
   a.href = url;
   const safeToken = ticket.tokenId.replace(/[/\\?%*:|"<>]/g, '-');
-  a.download = `ShriSaiClinic-Receipt-${safeToken}.png`;
+  a.download = `ShreeSaiClinic-Receipt-${safeToken}.png`;
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
@@ -263,7 +263,7 @@ export async function printReceiptSinglePage(ticket: AppointmentData): Promise<v
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Shri Sai Clinic Receipt #${ticket.tokenId}</title>
+        <title>Shree Sai Clinic Receipt #${ticket.tokenId}</title>
         <style>
           @page {
             size: A5 portrait;
@@ -326,15 +326,15 @@ export async function shareReceiptImageToWhatsApp(
   try {
     const blob = await generateReceiptBlob(ticket);
     const safeToken = ticket.tokenId.replace(/[/\\?%*:|"<>]/g, '-');
-    const file = new File([blob], `ShriSaiClinic-Receipt-${safeToken}.png`, { type: 'image/png' });
+    const file = new File([blob], `ShreeSaiClinic-Receipt-${safeToken}.png`, { type: 'image/png' });
 
     // Check if browser supports sharing files natively (Mobile OS share sheet -> WhatsApp)
     if (typeof navigator !== 'undefined' && navigator.canShare && navigator.canShare({ files: [file] })) {
       try {
         await navigator.share({
           files: [file],
-          title: `Shri Sai Clinic Receipt #${ticket.tokenId}`,
-          text: `Shri Sai Clinic Consultation Receipt #${ticket.tokenId} for ${ticket.patientName}`,
+          title: `Shree Sai Clinic Receipt #${ticket.tokenId}`,
+          text: `Shree Sai Clinic Consultation Receipt #${ticket.tokenId} for ${ticket.patientName}`,
         });
         return { success: true, method: 'native-share' };
       } catch (err: any) {

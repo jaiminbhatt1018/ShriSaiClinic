@@ -53,7 +53,7 @@ export const Navbar: React.FC = () => {
                 <source srcSet="/assets/images/logo.webp" type="image/webp" />
                 <img
                   src="/assets/images/logo.png"
-                  alt="Shri Sai Clinic - Classical Homoeopathic Care by Dr. Jay Bhatt (BHMS)"
+                  alt="Shree Sai Clinic - Classical Homoeopathic Care by Dr. Jaykumar Bhatt (BHMS)"
                   width={48}
                   height={48}
                   className="w-full h-full object-contain filter drop-shadow-xs"

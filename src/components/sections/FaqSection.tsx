@@ -64,7 +64,7 @@ export const FaqSection = withSectionWrapper(FaqSectionBase, {
   background: 'slate-50',
   badge: 'Got Questions?',
   title: 'Frequently Asked Questions',
-  subtitle: 'Clear, scientific information about individualized constitutional homeopathic care by Dr. Jay Bhatt (BHMS).',
+  subtitle: 'Clear, scientific information about individualized constitutional homeopathic care by Dr. Jaykumar Bhatt (BHMS).',
   containerClassName: 'max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'
 });
 

@@ -27,7 +27,7 @@ export const RootLayout: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 w-12 h-12 sm:w-14 sm:h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center shadow-xl pulse-whatsapp transition duration-300 hover:scale-110 active:scale-95 cursor-pointer"
-          title="Chat with Dr. Jay Bhatt on WhatsApp"
+          title="Chat with Dr. Jaykumar Bhatt on WhatsApp"
           aria-label="Direct WhatsApp Consultation with Clinic"
         >
           <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24" aria-hidden="true">

@@ -104,7 +104,7 @@ const BeforeAfterSliderBase: React.FC = () => {
               <img
                 key={`after-img-${activeCase.id}`}
                 src={activeCase.afterImg}
-                alt={`Clinical Recovery After Treatment - ${activeCase.title} by Dr. Jay Bhatt at Shri Sai Clinic`}
+                alt={`Clinical Recovery After Treatment - ${activeCase.title} by Dr. Jaykumar Bhatt at Shree Sai Clinic`}
                 width={600}
                 height={675}
                 loading="lazy"
@@ -119,7 +119,7 @@ const BeforeAfterSliderBase: React.FC = () => {
               <img
                 key={`before-img-${activeCase.id}`}
                 src={activeCase.beforeImg}
-                alt={`Clinical Presentation Before Treatment - ${activeCase.title} - Shri Sai Clinic`}
+                alt={`Clinical Presentation Before Treatment - ${activeCase.title} - Shree Sai Clinic`}
                 width={600}
                 height={675}
                 loading="lazy"
@@ -281,6 +281,6 @@ export const BeforeAfterSlider = withSectionWrapper(BeforeAfterSliderBase, {
   background: 'slate-50',
   badge: 'Clinical Case Studies',
   title: 'Proven Homeopathic Recovery',
-  subtitle: 'Real patient results and long-term healing journeys led by Dr. Jay Bhatt.'
+  subtitle: 'Real patient results and long-term healing journeys led by Dr. Jaykumar Bhatt.'
 });
 

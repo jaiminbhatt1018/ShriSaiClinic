@@ -13,14 +13,14 @@ export interface SEOHeadProps {
 }
 
 const DEFAULT_SEO = {
-  title: 'Shri Sai Clinic | Advanced Homeopathic Care by Dr. Jay Bhatt',
+  title: 'Shree Sai Clinic | Advanced Homeopathic Care by Dr. Jaykumar Bhatt',
   description:
-    'Specialized classical homeopathic clinic led by Dr. Jay Bhatt (BHMS) in Vansda, Gujarat. Offering HPI-standard non-steroidal constitutional care for scalp psoriasis, alopecia areata, chronic eczema, and non-surgical skin tag removal.',
+    'Specialized classical homeopathic clinic led by Dr. Jaykumar Bhatt (BHMS) in Vansda, Gujarat. Offering HPI-standard non-steroidal constitutional care for scalp psoriasis, alopecia areata, chronic eczema, and non-surgical skin tag removal.',
   canonicalUrl: 'https://shrisaiclinic.com/',
   ogImage: 'https://shrisaiclinic.com/assets/images/dr-jay-bhatt-healing-teal.jpeg',
   ogType: 'website' as const,
   keywords:
-    'Homeopathy clinic Vansda, Classical homeopathy Gujarat, Dr. Jay Bhatt, Steroid-free skin treatment, Scalp psoriasis homeopathy, Alopecia areata treatment, Non-surgical skin tag removal, Chronic eczema homeopathy'
+    'Homeopathy clinic Vansda, Classical homeopathy Gujarat, Dr. Jaykumar Bhatt, Dr. Jaykumar Vihangbhai Bhatt, Shree Sai Clinic Vansda, Steroid-free skin treatment, Scalp psoriasis homeopathy, Alopecia areata treatment, Non-surgical skin tag removal, Chronic eczema homeopathy'
 };
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -41,18 +41,18 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
-      <meta name="author" content="Dr. Jay Bhatt (BHMS)" />
+      <meta name="author" content="Dr. Jaykumar Bhatt (BHMS)" />
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* 2. Open Graph Protocol (Facebook, WhatsApp, LinkedIn) */}
       <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content="Shri Sai Clinic" />
+      <meta property="og:site_name" content="Shree Sai Clinic" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:alt" content="Dr. Jay Bhatt (BHMS) at Shri Sai Clinic, Vansda" />
+      <meta property="og:image:alt" content="Dr. Jaykumar Bhatt (BHMS) at Shree Sai Clinic, Vansda" />
       <meta property="og:locale" content="en_IN" />
       <meta property="og:locale:alternate" content="gu_IN" />
 

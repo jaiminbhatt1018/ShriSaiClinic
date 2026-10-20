@@ -1,11 +1,11 @@
 import { ClinicalCase, ServiceItem, Testimonial, FAQItem } from '../types';
 
 export const CLINIC_INFO = {
-  name: "SHRI SAI CLINIC",
+  name: "SHREE SAI CLINIC",
   tagline: "Homoeopathy & Clinical Skin Care",
   philosophy: "Gentle Healing, Lasting Relief",
-  doctor: "Dr. Jay Bhatt",
-  legalDoctorName: "Dr. Bhatt Jaykumar Vihangbhai",
+  doctor: "Dr. Jaykumar Bhatt",
+  legalDoctorName: "Dr. Jaykumar Vihangbhai Bhatt",
   qualifications: "BHMS (VNSGU Surat)",
   fullQualifications: "BHMS (Bachelor of Homoeopathic Medicine & Surgery)",
   college: "Shri C. N. Kothari Homoeopathic Medical College & Research Centre, Vyara",
@@ -19,11 +19,11 @@ export const CLINIC_INFO = {
   doctorWhatsapp: "7600239816",
   doctorWhatsappRaw: "917600239816",
   doctorPhoneFormatted: "+91 76002 39816",
-  whatsappUrl: "https://wa.me/917600239816?text=Hello%20Shri%20Sai%20Clinic,%20I%20would%20like%20to%20inquire%20about%20a%20consultation.",
+  whatsappUrl: "https://wa.me/917600239816?text=Hello%20Shree%20Sai%20Clinic,%20I%20would%20like%20to%20inquire%20about%20a%20consultation.",
   email: "appointments.shrisaiclinic@gmail.com",
   address: "Samrudhi Complex, Opp. Palace Gate, New Depo Road, Vansda, Gujarat",
   mapsUrl: "https://share.google/myiPzk2hQAKWgQg6f",
-  mapsEmbedUrl: "https://maps.google.com/maps?q=Shri+Sai+Clinic,+Samrudhi+Complex,+Opp.+Palace+Gate,+Vansda,+Gujarat&t=&z=16&ie=UTF8&iwloc=&output=embed",
+  mapsEmbedUrl: "https://maps.google.com/maps?q=Shree+Sai+Clinic,+Samrudhi+Complex,+Opp.+Palace+Gate,+Vansda,+Gujarat&t=&z=16&ie=UTF8&iwloc=&output=embed",
   stats: {
     yearsExperience: 10,
     treatedPatients: 5000,
@@ -45,14 +45,14 @@ export const CLINICAL_CASES: ClinicalCase[] = [
     duration: "4 Months",
     method: "Constitutional",
     recovery: "Scalp Remission",
-    description: "Severe, long-lasting flaking and thick red patches across the forehead and scalp. Dr. Jay Bhatt used customized homeopathic treatment to help the body naturally balance its immune system. Complete healing of the scalp without using steroid creams or harsh medicines.",
+    description: "Severe, long-lasting flaking and thick red patches across the forehead and scalp. Dr. Jaykumar Bhatt used customized homeopathic treatment to help the body naturally balance its immune system. Complete healing of the scalp without using steroid creams or harsh medicines.",
     highlights: [
       "Zero topical cortisone or steroid rebound",
       "Complete scalp epidermal turnover normalized"
     ],
     beforeImg: "/assets/cases/psoriasis_before.jpg",
     afterImg: "/assets/cases/psoriasis_after.jpg",
-    disclaimer: "Case SSC-PS-204 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Individual results vary based on constitutional analysis",
+    disclaimer: "Case SSC-PS-204 • Dr. Jaykumar Bhatt (BHMS) • Samrudhi Complex, Vansda • Individual results vary based on constitutional analysis",
     bookingSubject: "Scalp Psoriasis Treatment Inquiry"
   },
   {
@@ -70,7 +70,7 @@ export const CLINICAL_CASES: ClinicalCase[] = [
     ],
     beforeImg: "/assets/cases/skintags_before.jpg",
     afterImg: "/assets/cases/skintags_after.jpg",
-    disclaimer: "Case SSC-ST-118 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Zero surgery or chemical burning",
+    disclaimer: "Case SSC-ST-118 • Dr. Jaykumar Bhatt (BHMS) • Samrudhi Complex, Vansda • Zero surgery or chemical burning",
     bookingSubject: "Skin Tags Non-Surgical Treatment Inquiry"
   },
   {
@@ -88,7 +88,7 @@ export const CLINICAL_CASES: ClinicalCase[] = [
     ],
     beforeImg: "/assets/cases/alopecia_before.jpg",
     afterImg: "/assets/cases/alopecia_after.jpg",
-    disclaimer: "Case SSC-AA-309 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Natural follicular revival",
+    disclaimer: "Case SSC-AA-309 • Dr. Jaykumar Bhatt (BHMS) • Samrudhi Complex, Vansda • Natural follicular revival",
     bookingSubject: "Alopecia Areata Hair Regrowth Inquiry"
   },
   {
@@ -106,7 +106,7 @@ export const CLINICAL_CASES: ClinicalCase[] = [
     ],
     beforeImg: "/assets/cases/seborrhea_before.jpg",
     afterImg: "/assets/cases/seborrhea_after.jpg",
-    disclaimer: "Case SSC-SD-412 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Long-term sustained clearance",
+    disclaimer: "Case SSC-SD-412 • Dr. Jaykumar Bhatt (BHMS) • Samrudhi Complex, Vansda • Long-term sustained clearance",
     bookingSubject: "Seborrheic Dermatitis Inquiry"
   },
   {
@@ -124,7 +124,7 @@ export const CLINICAL_CASES: ClinicalCase[] = [
     ],
     beforeImg: "/assets/cases/kidneystone_poster.jpg",
     afterImg: "/assets/cases/kidneystone_poster.jpg",
-    disclaimer: "Case SSC-KS-523 • Dr. Jay Bhatt (BHMS) • Samrudhi Complex, Vansda • Verified actual stone expelled post-treatment",
+    disclaimer: "Case SSC-KS-523 • Dr. Jaykumar Bhatt (BHMS) • Samrudhi Complex, Vansda • Verified actual stone expelled post-treatment",
     bookingSubject: "Kidney Stone Treatment Inquiry"
   }
 ];
@@ -382,7 +382,7 @@ export const FAQS: FAQItem[] = [
   {
     id: 2,
     question: "Do your remedies contain any steroids or heavy chemicals?",
-    answer: "Zero. At Shri Sai Clinic, every remedy is prepared strictly as per the official Homoeopathic Pharmacopoeia of India (HPI). We strictly prescribe non-steroidal, gentle micro-doses that stimulate your body's innate self-healing immune response without causing dependency, liver toxicity, or rebound flaring."
+    answer: "Zero. At Shree Sai Clinic, every remedy is prepared strictly as per the official Homoeopathic Pharmacopoeia of India (HPI). We strictly prescribe non-steroidal, gentle micro-doses that stimulate your body's innate self-healing immune response without causing dependency, liver toxicity, or rebound flaring."
   },
   {
     id: 3,
@@ -396,7 +396,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     id: 5,
-    question: "Why does Dr. Jay Bhatt spend 30–45 minutes in first consultation?",
-    answer: "Classical homoeopathy treats the patient as a whole individual, not just an isolated disease label. Dr. Jay analyzes your emotional constitution, thermal sensitivity, sleep patterns, metabolic tendencies, and root disease origins to select the single, individualised constitutional remedy to stimulate your body's self-healing response and restore long-term balance."
+    question: "Why does Dr. Jaykumar Bhatt spend 30–45 minutes in first consultation?",
+    answer: "Classical homoeopathy treats the patient as a whole individual, not just an isolated disease label. Dr. Jaykumar Bhatt analyzes your emotional constitution, thermal sensitivity, sleep patterns, metabolic tendencies, and root disease origins to select the single, individualised constitutional remedy to stimulate your body's self-healing response and restore long-term balance."
   }
 ];

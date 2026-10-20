@@ -33,9 +33,9 @@ export const Hero: React.FC = () => {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Top Verified Location Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-50 text-primary-800 border border-primary-200 text-xs font-bold tracking-wide uppercase">
-              <span className="w-2 h-2 rounded-full bg-primary-600 animate-pulse" />
-              <span>Shri Sai Clinic (Shree Sai Clinic) &bull; Dr. Jay Bhatt &bull; Vansda</span>
+            <div className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-primary-50 text-primary-800 border border-primary-200 text-[11px] sm:text-xs font-bold tracking-wide uppercase">
+              <span className="w-2 h-2 rounded-full bg-primary-600 animate-pulse shrink-0" />
+              <span>Shree Sai Clinic &bull; Dr. Jaykumar Bhatt &bull; Vansda</span>
             </div>
 
             {/* Main Headline */}
@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
 
             {/* Subheadline with Doctor Identity */}
             <p className="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor}</span> ({CLINIC_INFO.legalDoctorName}, BHMS). Registered with {CLINIC_INFO.council} (Reg. No. {CLINIC_INFO.registrationNumber}). Personalized constitutional care prepared as per Homoeopathic Pharmacopoeia of India (HPI) standards without steroid suppression.
+              Led by <span className="font-bold text-slate-800">{CLINIC_INFO.doctor}</span> (BHMS). Registered with {CLINIC_INFO.council} (Reg. No. {CLINIC_INFO.registrationNumber}). Personalized constitutional care prepared as per Homoeopathic Pharmacopoeia of India (HPI) standards without steroid suppression.
             </p>
 
             {/* Two Key Feature Pills */}
@@ -103,7 +103,7 @@ export const Hero: React.FC = () => {
                     <source srcSet="/assets/images/dr-jay-bhatt-healing-teal.webp" type="image/webp" />
                     <img
                       src="/assets/images/dr-jay-bhatt-healing-teal.jpeg"
-                      alt={`${CLINIC_INFO.doctor} (BHMS) - Classical Homeopath & General Physician at Shri Sai Clinic`}
+                      alt={`${CLINIC_INFO.doctor} (BHMS) - Classical Homeopath & General Physician at Shree Sai Clinic`}
                       width={480}
                       height={600}
                       fetchPriority="high"

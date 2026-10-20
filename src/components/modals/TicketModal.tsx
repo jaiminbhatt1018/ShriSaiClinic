@@ -107,7 +107,7 @@ const TicketModalContent: React.FC<TicketModalContentProps> = ({ onClose }) => {
           Inquiry Submitted Successfully!
         </h3>
         <p className="text-xs text-slate-500 mt-0.5">
-          Sent directly to Shri Sai Clinic desk via email.
+          Sent directly to Shree Sai Clinic desk via email.
         </p>
       </div>
 
@@ -118,7 +118,7 @@ const TicketModalContent: React.FC<TicketModalContentProps> = ({ onClose }) => {
           <div className="w-9 h-9 rounded-xl bg-white p-1 border border-teal-200 shadow-xs shrink-0 flex items-center justify-center">
             <img
               src="/assets/images/logo.png"
-              alt="Shri Sai Clinic Logo"
+              alt="Shree Sai Clinic Logo"
               className="w-full h-full object-contain"
             />
           </div>

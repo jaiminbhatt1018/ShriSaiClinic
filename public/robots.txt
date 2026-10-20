@@ -1,5 +1,5 @@
-# Robots.txt for Shri Sai Clinic (shrisaiclinic.com)
-# Primary Clinical Practice of Dr. Jay Bhatt (BHMS), Vansda, Gujarat, India
+# Robots.txt for Shree Sai Clinic (shrisaiclinic.com)
+# Primary Clinical Practice of Dr. Jaykumar Bhatt (BHMS), Vansda, Gujarat, India
 
 User-agent: *
 Allow: /

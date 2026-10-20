@@ -8,17 +8,17 @@ export function generateMedicalClinicSchema() {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
     '@id': 'https://shrisaiclinic.com/#clinic',
-    name: 'Shri Sai Clinic',
+    name: 'Shree Sai Clinic',
     alternateName: [
-      'Shri Sai Homoeopathic Clinic',
-      'Shree Sai Clinic',
-      'Shri Sai Clinic Vansda'
+      'Shree Sai Homoeopathic Clinic',
+      'Shree Sai Clinic Vansda',
+      'Dr. Jaykumar Bhatt Clinic Vansda'
     ],
     url: 'https://shrisaiclinic.com',
     logo: 'https://shrisaiclinic.com/assets/images/logo.png',
     image: 'https://shrisaiclinic.com/assets/images/dr-jay-bhatt-healing-teal.jpeg',
     description:
-      'Specialized classical homeopathic clinic providing non-steroidal constitutional treatments led by Dr. Jay Bhatt (BHMS) in Vansda, Gujarat, India.',
+      'Specialized classical homeopathic clinic providing non-steroidal constitutional treatments led by Dr. Jaykumar Bhatt (BHMS) in Vansda, Gujarat, India.',
     telephone: CLINIC_INFO.phone,
     email: CLINIC_INFO.email,
     priceRange: '₹₹',
@@ -116,7 +116,7 @@ export function generateMedicalClinicSchema() {
 }
 
 /**
- * Generates Schema.org Physician structured data for Dr. Jay Bhatt
+ * Generates Schema.org Physician structured data for Dr. Jaykumar Bhatt
  */
 export function generatePhysicianSchema() {
   return {
@@ -199,7 +199,7 @@ export function generateFullClinicSchemaGraph() {
         '@type': 'WebSite',
         '@id': 'https://shrisaiclinic.com/#website',
         url: 'https://shrisaiclinic.com',
-        name: 'Shri Sai Clinic',
+        name: 'Shree Sai Clinic',
         publisher: {
           '@id': 'https://shrisaiclinic.com/#clinic'
         },

@@ -112,7 +112,7 @@ const AppointmentSectionBase: React.FC = () => {
             {/* Interactive Google Maps Iframe */}
             <div className="relative w-full h-36 sm:h-40 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
               <iframe
-                title="Shri Sai Clinic Location Map"
+                title="Shree Sai Clinic Location Map"
                 src={CLINIC_INFO.mapsEmbedUrl}
                 width="100%"
                 height="100%"
@@ -335,6 +335,6 @@ export const AppointmentSection = withSectionWrapper(AppointmentSectionBase, {
   background: 'white',
   badge: 'Book Consultation',
   title: 'Book Your Consultation',
-  subtitle: 'View OPD visiting hours and plan your visit to Shri Sai Clinic.'
+  subtitle: 'View OPD visiting hours and plan your visit to Shree Sai Clinic.'
 });
 
