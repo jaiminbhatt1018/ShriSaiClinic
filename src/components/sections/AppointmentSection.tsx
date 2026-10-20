@@ -60,19 +60,19 @@ const AppointmentSectionBase: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
       {/* Left Column: Clinic OPD Timings, Address & Direct Reach (5 cols) */}
-      <div className="lg:col-span-5 space-y-6">
+      <div className="lg:col-span-5 flex flex-col justify-between gap-5">
         
         {/* Visiting Hours Card */}
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs">
-          <div className="flex items-center gap-3 mb-4">
+        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs">
+          <div className="flex items-center gap-3 mb-3.5">
             <div className="p-2.5 rounded-xl bg-primary-600 text-white shadow-xs">
               <Clock className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-heading font-bold text-slate-900 text-lg">
+              <h3 className="font-heading font-bold text-slate-900 text-base sm:text-lg">
                 OPD Visiting Hours
               </h3>
               <p className="text-xs text-slate-500 font-medium">
@@ -81,8 +81,8 @@ const AppointmentSectionBase: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-3 text-sm">
-            <div className="flex justify-between items-center pb-2.5 border-b border-slate-200">
+          <div className="space-y-2.5 text-xs sm:text-sm">
+            <div className="flex justify-between items-center pb-2 border-b border-slate-200">
               <span className="font-medium text-slate-700">Mon – Sun (Morning Session)</span>
               <span className="font-bold text-primary-700">9:00 AM – 12:00 PM</span>
             </div>
@@ -94,10 +94,10 @@ const AppointmentSectionBase: React.FC = () => {
         </div>
 
         {/* Contact & Location Card */}
-        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs space-y-4">
+        <div className="flex-1 flex flex-col justify-between bg-slate-50 border border-slate-200 rounded-3xl p-5 sm:p-6 shadow-xs space-y-4">
           
           <div className="space-y-3">
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-3.5">
               <div className="p-2.5 rounded-xl bg-primary-100 text-primary-700 shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
@@ -110,7 +110,7 @@ const AppointmentSectionBase: React.FC = () => {
             </div>
 
             {/* Interactive Google Maps Iframe */}
-            <div className="relative w-full h-48 sm:h-52 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
+            <div className="relative w-full h-36 sm:h-40 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
               <iframe
                 title="Shri Sai Clinic Location Map"
                 src={CLINIC_INFO.mapsEmbedUrl}
@@ -123,53 +123,48 @@ const AppointmentSectionBase: React.FC = () => {
                 className="w-full h-full"
               />
             </div>
-
-            <div className="pt-0.5">
-              <a
-                href={CLINIC_INFO.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-100 text-primary-800 hover:bg-primary-200 border border-primary-200 text-xs font-semibold transition"
-              >
-                <Navigation className="w-3.5 h-3.5 text-primary-600" />
-                <span>Open in Google Maps</span>
-                <ExternalLink className="w-3 h-3 ml-0.5" />
-              </a>
-            </div>
           </div>
 
-          <div className="flex items-start gap-4">
-            <div className="p-2.5 rounded-xl bg-primary-100 text-primary-700 shrink-0">
-              <Phone className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm">Phone Number</h4>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
-                <a href={CLINIC_INFO.phoneTel} className="hover:text-primary-600 font-semibold text-slate-900">
+          {/* Contact Methods: Phone & Email side-by-side */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            <div className="flex items-center gap-3 p-2.5 rounded-xl bg-white/70 border border-slate-200/80 shadow-2xs">
+              <div className="p-2 rounded-lg bg-primary-100 text-primary-700 shrink-0">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Phone</p>
+                <a 
+                  href={CLINIC_INFO.phoneTel} 
+                  className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-primary-600 truncate block"
+                  title={CLINIC_INFO.phone}
+                >
                   {CLINIC_INFO.phone}
                 </a>
-              </p>
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-start gap-4">
-            <div className="p-2.5 rounded-xl bg-primary-100 text-primary-700 shrink-0">
-              <Mail className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-sm">Email Address</h4>
-              <p className="text-xs sm:text-sm text-slate-600 mt-0.5">
-                <a href={`mailto:${CLINIC_INFO.email}`} className="hover:text-primary-600">
+            <div className="flex items-center gap-3 p-2.5 rounded-xl bg-white/70 border border-slate-200/80 shadow-2xs">
+              <div className="p-2 rounded-lg bg-primary-100 text-primary-700 shrink-0">
+                <Mail className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Email</p>
+                <a 
+                  href={`mailto:${CLINIC_INFO.email}`} 
+                  className="text-xs sm:text-sm font-semibold text-slate-900 hover:text-primary-600 truncate block"
+                  title={CLINIC_INFO.email}
+                >
                   {CLINIC_INFO.email}
                 </a>
-              </p>
+              </div>
             </div>
           </div>
 
-          <div className="pt-2">
+          {/* Quick Call Action */}
+          <div className="pt-1">
             <a
               href={CLINIC_INFO.phoneTel}
-              className="w-full py-3 rounded-xl border border-primary-500 bg-primary-50 text-primary-800 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary-100 transition shadow-xs"
+              className="w-full py-2.5 sm:py-3 rounded-xl border border-primary-500 bg-primary-50 text-primary-800 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-primary-100 transition shadow-xs"
             >
               <Phone className="w-4 h-4 text-primary-600 shrink-0" />
               <span>Call Clinic Desk (+91 76002 39816)</span>
